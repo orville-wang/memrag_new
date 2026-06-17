@@ -1,0 +1,1348 @@
+{
+  "created_at": "2026-06-11 21:59:03",
+  "args": {
+    "hotpot_train": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/train.jsonl",
+    "twiki_train": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/train.jsonl",
+    "output_dir": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220",
+    "train_per_dataset": 500,
+    "valid_per_dataset": 50,
+    "valid_skip": 3000,
+    "max_hops": 2,
+    "topk": 3,
+    "max_doc_chars": 220,
+    "search_url": "http://127.0.0.1:8000/retrieve",
+    "require_full_support": true,
+    "max_scan_per_dataset": 10000
+  },
+  "train_n": 1000,
+  "valid_n": 100,
+  "train_avg_support_coverage": 1.0,
+  "valid_avg_support_coverage": 1.0,
+  "cache_size": 4461,
+  "train_rejected_n": 1081,
+  "valid_rejected_n": 117,
+  "train_scan_counts": {
+    "hotpotqa": {
+      "accepted": 500,
+      "scanned": 698,
+      "target": 500
+    },
+    "2wikimultihopqa": {
+      "accepted": 500,
+      "scanned": 1383,
+      "target": 500
+    }
+  },
+  "valid_scan_counts": {
+    "hotpotqa": {
+      "accepted": 50,
+      "scanned": 60,
+      "target": 50
+    },
+    "2wikimultihopqa": {
+      "accepted": 50,
+      "scanned": 157,
+      "target": 50
+    }
+  },
+  "errors": [],
+  "rejected_sample": [
+    {
+      "dataset": "hotpotqa",
+      "id": "train_0",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Arthur's Magazine",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Arthur's Lady's Home Magazine",
+            "Arthur (magazine)",
+            "Arthur's Lady's Home Magazine"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "First for Women",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "First Women",
+            "Zara Nakhimovskaya",
+            "Bristol Boat Race"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_1",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Oberoi family",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mohan Singh Oberoi",
+            "Suresh Oberoi",
+            "The Oberoi Group"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Oberoi Group",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Oberoi Group",
+            "The Oberoi Group",
+            "The Oberoi Group"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_2",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Allie Goertz",
+          "hit_support_titles": [
+            "Allie Goertz"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Allie Goertz",
+            "Allie Goertz",
+            "Raymond Goertz"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Milhouse Van Houten",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Little Orphan Millie",
+            "A Milhouse Divided",
+            "Pamela Hayden"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_6",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Indogrammodes",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": []
+        },
+        {
+          "turn": 2,
+          "query": "India",
+          "hit_support_titles": [
+            "India"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Air India Limited",
+            "Air India Limited",
+            "State Bank of India"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_7",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Global Fighting Championship",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "2018 in Fight Nights Global",
+            "2018 in Fight Nights Global",
+            "2017 in Fight Nights Global"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Badr Hari",
+          "hit_support_titles": [
+            "Badr Hari"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_11",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Gunmen from Laredo",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Laredo, Texas",
+            "2012 Nuevo Laredo massacres",
+            "Miguel \"\"El Gringo\"\" Villarreal"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Walter Coy",
+          "hit_support_titles": [
+            "Walter Coy"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Walter Coy",
+            "Walter Coy",
+            "Ted Coy"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_20",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Warren Bryant",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Kevin L. Bryant",
+            "2008 Bryant Bulldogs football team",
+            "Louise Bryant"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Longs Drugs",
+          "hit_support_titles": [
+            "Longs Drugs"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Longs Drugs",
+            "Longs Drugs",
+            "Longs Drugs"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_21",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Sue Donahue",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Sunlight Foundation",
+            "Strong Medicine (novel)",
+            "Silas House"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Kelli Ward",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Kelly Ward",
+            "Michael Edward Ward",
+            "Ward, West Virginia"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_22",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Courtney Love",
+          "hit_support_titles": [
+            "Courtney Love"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Linda Perry production discography",
+            "Courtney Love",
+            "Pacific Coast Highway (song)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Wolfhounds",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Wolfhound (2006 film)",
+            "Wolfhound (horse)",
+            "27th Infantry Regiment (United States)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_23",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Catching Fire",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Catch the Fire World",
+            "Catch a Fire Tour",
+            "Catch a Fire Tour"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Hunger Games (novel)",
+          "hit_support_titles": [
+            "The Hunger Games (novel)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Hunger Games",
+            "The Hunger Games",
+            "The Hunger Games (novel)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_28",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The New Pornographers",
+          "hit_support_titles": [
+            "The New Pornographers"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The New Pornographers",
+            "The New Pornographers",
+            "Pornographic film actor"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Kings of Leon",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "George Gelaga King",
+            "C. Leon King High School",
+            "C. Leon King High School"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_32",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Jane (magazine)",
+          "hit_support_titles": [
+            "Jane (magazine)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Jane (magazine)",
+            "Jane (magazine)",
+            "Jane (magazine)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "First for Women",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "First Women",
+            "Zara Nakhimovskaya",
+            "Bristol Boat Race"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_35",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Adam Clayton Powell (film)",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Adam Clayton Powell Jr.",
+            "Adam Clayton Powell Sr.",
+            "Adam Clayton Powell III"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Saimaa Gesture",
+          "hit_support_titles": [
+            "The Saimaa Gesture"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Saimaa Gesture",
+            "The Saimaa Gesture",
+            "Hassisen Kone"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_37",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Guwe Secondary School",
+          "hit_support_titles": [
+            "Carle Place High School"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Carle Place High School",
+            "Classical Japanese language",
+            "Education in Syria"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Carle Place High School",
+          "hit_support_titles": [
+            "Carle Place High School"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Carle Place High School",
+            "Carle Place High School",
+            "Carl Schurz High School"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_41",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "University of Providence",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Providence University College and Theological Seminary",
+            "Providence University",
+            "Providence University"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Great Falls, Montana",
+          "hit_support_titles": [
+            "Great Falls, Montana"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Great Falls, Montana",
+            "Great Falls College Montana State University",
+            "Montana Central Railway"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_43",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Guitars for Wounded Warriors",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Brian Tarquin discography",
+            "Guitar Hero: Warriors of Rock",
+            "Roman Shakespeare: Warriors, Wounds, and Women"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "New Paltz (village), New York",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Jason West",
+            "State University of New York at New Paltz",
+            "New York State Route 299"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_52",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Southern Railway (Austria)",
+          "hit_support_titles": [
+            "Southern Railway (Austria)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Southern Railway (Austria)",
+            "Southern Railway (Austria)",
+            "Karawanks Tunnel (railway)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Semmering railway",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Semmering Pass",
+            "Semmering Base Tunnel",
+            "Semmering Pass"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_58",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Hat Check Girl",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Annie Gallup",
+            "Freeway II: Confessions of a Trickbaby",
+            "St Stithians College"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ginger Rogers",
+          "hit_support_titles": [
+            "Ginger Rogers"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Ginger Rogers",
+            "Ginger Rogers filmography",
+            "Ginger and Fred"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_68",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Gigantic (2008 film)",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Gigantic (film)",
+            "Gigantic (film)",
+            "Must Read After My Death"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "John Goodman",
+          "hit_support_titles": [
+            "John Goodman"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "John Goodman (Australian politician)",
+            "John Goodman (Australian politician)",
+            "John Goodman (pilgrim)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_70",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Still da Baddest",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Da Baddest Bitch",
+            "Da Baddest Bitch",
+            "Trina"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Keyshia Cole",
+          "hit_support_titles": [
+            "Keyshia Cole"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Keyshia Cole: All In",
+            "Heaven Sent (Keyshia Cole song)",
+            "Keyshia Cole: All In"
+          ]
+        }
+      ]
+    }
+  ],
+  "train_stats_sample": [
+    {
+      "id": "train_3",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Peggy Seeger",
+          "hit_support_titles": [
+            "Peggy Seeger"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Peggy Seeger",
+            "Everything Changes (Peggy Seeger album)",
+            "Peggy Seeger"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ewan MacColl",
+          "hit_support_titles": [
+            "Ewan MacColl"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Ewan MacColl"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_4",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Cadmium chloride",
+          "hit_support_titles": [
+            "Cadmium chloride"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Cadmium chloride",
+            "Cadmium chloride",
+            "Cadmium chloride"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ethanol",
+          "hit_support_titles": [
+            "Ethanol"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Microsomal ethanol oxidizing system",
+            "Corn ethanol",
+            "Ethanol fuel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_5",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Jonathan Stark (tennis)",
+          "hit_support_titles": [
+            "Jonathan Stark (tennis)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Henri Leconte",
+          "hit_support_titles": [
+            "Henri Leconte"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Henri Leconte",
+            "Henri Leconte",
+            "Henri Leconte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_8",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "House of Anubis",
+          "hit_support_titles": [
+            "House of Anubis",
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "House of Anubis",
+            "Het Huis Anubis",
+            "House of Anubis"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Het Huis Anubis",
+          "hit_support_titles": [
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Het Huis Anubis",
+            "Het Huis Anubis",
+            "Anubis en het Pad der 7 Zonden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_9",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "2013 Liqui Moly Bathurst 12 Hour",
+          "hit_support_titles": [
+            "2013 Liqui Moly Bathurst 12 Hour"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "2013 Liqui Moly Bathurst 12 Hour",
+            "2013 Liqui Moly Bathurst 12 Hour",
+            "2015 Liqui Moly Bathurst 12 Hour"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Mount Panorama Circuit",
+          "hit_support_titles": [
+            "Mount Panorama Circuit"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mount Panorama Circuit",
+            "Mount Panorama Circuit",
+            "Mount Panorama Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_10",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Fast Cars, Danger, Fire and Knives",
+          "hit_support_titles": [
+            "Fast Cars, Danger, Fire and Knives"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Fast Cars, Danger, Fire and Knives",
+            "Fast Cars, Danger, Fire and Knives",
+            "Fast Cars, Danger, Fire and Knives"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "El-P",
+          "hit_support_titles": [
+            "El-P"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "El-P",
+            "El-P",
+            "El-P"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_12",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Die Rhöner Säuwäntzt",
+          "hit_support_titles": [
+            "Die Rhöner Säuwäntzt"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Die Rhöner Säuwäntzt",
+            "Die Rhöner Säuwäntzt",
+            "Cotton Fields"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Skiffle",
+          "hit_support_titles": [
+            "Skiffle"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Skiffle",
+            "Skiffle",
+            "Skiffle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_13",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Malcolm Smith (American football)",
+          "hit_support_titles": [
+            "Malcolm Smith (American football)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Malcolm Smith (American football)",
+            "Malcolm Smith (footballer, born 1953)",
+            "Malcolm Smith (footballer, born 1953)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Super Bowl XLVIII",
+          "hit_support_titles": [
+            "Super Bowl XLVIII"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Super Bowl XLVIII",
+            "Super Bowl XLVIII",
+            "Super Bowl XLVIII"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_14",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Zilpo Road",
+          "hit_support_titles": [
+            "Zilpo Road"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Zilpo Road",
+            "Zilpo Road",
+            "Cave Run Lake"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Morehead, Kentucky",
+          "hit_support_titles": [
+            "Morehead, Kentucky"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "James Turner Morehead (Kentucky)",
+            "Morehead, Kentucky",
+            "Charles S. Morehead"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_15",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Great Outdoors (film)",
+          "hit_support_titles": [
+            "The Great Outdoors (film)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "The Great Outdoors (film)",
+            "The Great Outdoors (film)",
+            "The Great Outdoors (film)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Annette Bening",
+          "hit_support_titles": [
+            "Annette Bening"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Annette Bening",
+            "Annette Bening",
+            "Being Julia"
+          ]
+        }
+      ]
+    }
+  ],
+  "valid_stats_sample": [
+    {
+      "id": "train_3000",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Extinction (2018 film)",
+          "hit_support_titles": [
+            "Extinction (2018 film)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Sharkwater Extinction",
+            "Extinction (2018 film)",
+            "Extinction (2018 film)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Emma Booth (actress)",
+          "hit_support_titles": [
+            "Emma Booth (actress)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Emma Booth (actress)",
+            "Emma Booth (actress)",
+            "Emma Booth (actress)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3002",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "WWF The Music, Vol. 5",
+          "hit_support_titles": [
+            "WWF The Music, Vol. 5"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "WWF The Music, Vol. 5",
+            "WWF The Music, Vol. 5",
+            "WWE The Music: The Beginning"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Jim Johnston (composer)",
+          "hit_support_titles": [
+            "Jim Johnston (composer)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Jim Johnston (composer)",
+            "Jim Johnston (composer)",
+            "WWF The Music, Vol. 3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3003",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Peter Horachek",
+          "hit_support_titles": [
+            "Peter Horachek"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Peter Horachek",
+            "Peter Horachek",
+            "Peter Horachek"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "New Jersey Devils",
+          "hit_support_titles": [
+            "New Jersey Devils"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "2009–10 New Jersey Devils season",
+            "1993–94 New Jersey Devils season",
+            "2010–11 New Jersey Devils season"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3005",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "1983 Miami Hurricanes football team",
+          "hit_support_titles": [
+            "1983 Miami Hurricanes football team"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "1987 Miami Hurricanes football team",
+            "Miami Hurricanes football",
+            "1985 Miami Hurricanes football team"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Howard Schnellenberger",
+          "hit_support_titles": [
+            "Howard Schnellenberger"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Howard Schnellenberger",
+            "Howard Schnellenberger",
+            "Louisville Cardinals football"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3006",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "1993–94 FC Barcelona season",
+          "hit_support_titles": [
+            "1993–94 FC Barcelona season"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "1993–94 FC Barcelona season",
+            "1993–94 A.C. Milan season",
+            "Efthimios Rentzias"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Daniele Massaro",
+          "hit_support_titles": [
+            "Daniele Massaro"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Daniele Massaro",
+            "Daniele Massaro",
+            "Daniele Massaro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3007",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Trials of Nikki Hill",
+          "hit_support_titles": [
+            "The Trials of Nikki Hill"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "The Trials of Nikki Hill",
+            "The Trials of Nikki Hill",
+            "The Trials of Nikki Hill"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Christopher Darden",
+          "hit_support_titles": [
+            "Christopher Darden"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Christopher Darden",
+            "Christopher Darden",
+            "Christopher Darden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3010",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Victoria Larimore",
+          "hit_support_titles": [
+            "Victoria Larimore"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Victoria Larimore",
+            "Victoria Larimore",
+            "Victoria Larimore"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Mauritz Stiller",
+          "hit_support_titles": [
+            "Mauritz Stiller"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mauritz Stiller",
+            "Mauritz Stiller",
+            "Mauritz Stiller"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3011",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "PsyFive",
+          "hit_support_titles": [
+            "PsyFive"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Psy"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "YG Entertainment",
+          "hit_support_titles": [
+            "YG Entertainment"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "YG Entertainment",
+            "YG Entertainment",
+            "YG Entertainment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3012",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Dacrydium",
+          "hit_support_titles": [
+            "Dacrydium"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Dacrydium",
+            "Dacrydium cupressinum",
+            "Podocarpaceae"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Tecophilaea",
+          "hit_support_titles": [
+            "Tecophilaea"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Tecophilaea cyanocrocus",
+            "Tecophilaea cyanocrocus",
+            "Tecophilaea cyanocrocus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3014",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Hail Mary (2Pac song)",
+          "hit_support_titles": [
+            "Hail Mary (2Pac song)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Hail Mary (2Pac song)",
+            "Hail Mary (2Pac song)",
+            "Hail Mary (2Pac song)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Yaki Kadafi",
+          "hit_support_titles": [
+            "Yaki Kadafi"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Yaki Kadafi",
+            "Untouchable (Tupac Shakur song)",
+            "Yaki Kadafi"
+          ]
+        }
+      ]
+    }
+  ]
+}

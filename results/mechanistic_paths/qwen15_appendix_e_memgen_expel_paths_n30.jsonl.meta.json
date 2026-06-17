@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-06-16 22:59:16",
+  "schema": "one JSON object per eval sample; all tensor fields stripped",
+  "experiment": "MemGen vs retrieval-conditioned trained weaver vs retrieval-conditioned untrained weaver",
+  "settings": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "weaver_model": null,
+    "trigger_model": null,
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/Qwen2.5-1.5B-Instruct/triviaqa/weaver-sft/pn=8_pl=8_in=0_il=8/model",
+    "num_samples": 30,
+    "memory_bank_size": 800,
+    "memory_topk": 3,
+    "retrieval_fusion": "appendix_e_embedding",
+    "retrieval_query_tokens": 128,
+    "latent_len": 8,
+    "max_prompt_tokens": 768,
+    "max_weaver_context_tokens": 1024,
+    "max_retrieval_memory_tokens": 384,
+    "max_new_tokens": 32,
+    "top_tokens": 8,
+    "collect_attentions": true,
+    "seed": 42,
+    "untrained_seed": 1234,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_target_modules": "q_proj,v_proj",
+    "lora_dropout": 0.1,
+    "attn_implementation": "eager",
+    "torch_dtype": "bfloat16",
+    "device": "cuda",
+    "output": "results/mechanistic_paths/qwen15_appendix_e_memgen_expel_paths_n30.jsonl"
+  },
+  "warnings": [],
+  "summary": {
+    "n": 30,
+    "arms": {
+      "no_latent": {
+        "gold_answer_prob_mean": 0.28729552353421844,
+        "search_prob_mean": 0.6042446033175414,
+        "answer_prob_mean": 0.38301064184245964,
+        "gold_vs_distractor_margin_mean": 1.2914300998051962,
+        "search_vs_answer_margin_mean": 0.7966340184211731,
+        "next_token_entropy_mean": 0.009365216254567106,
+        "latent_norm_mean": 0.0
+      },
+      "memgen": {
+        "gold_answer_prob_mean": 0.19272463507950305,
+        "search_prob_mean": 0.7231964257429354,
+        "answer_prob_mean": 0.27039969034182526,
+        "gold_vs_distractor_margin_mean": 1.020697577794393,
+        "search_vs_answer_margin_mean": 1.520020588239034,
+        "next_token_entropy_mean": 3.0577222247918447,
+        "latent_norm_mean": 73.64576848347981
+      },
+      "expel_trained": {
+        "gold_answer_prob_mean": 0.22616034684081873,
+        "search_prob_mean": 0.6880561017431319,
+        "answer_prob_mean": 0.2995899739752834,
+        "gold_vs_distractor_margin_mean": 1.3284879783789316,
+        "search_vs_answer_margin_mean": 1.2932277083396913,
+        "next_token_entropy_mean": 3.9975048820177714,
+        "latent_norm_mean": 68.32672449747722
+      },
+      "expel_untrained": {
+        "gold_answer_prob_mean": 0.1927134116490682,
+        "search_prob_mean": 0.7174624601844698,
+        "answer_prob_mean": 0.2635948752518743,
+        "gold_vs_distractor_margin_mean": 0.9872331698735555,
+        "search_vs_answer_margin_mean": 1.5565687855084738,
+        "next_token_entropy_mean": 6.0279323101043705,
+        "latent_norm_mean": 57.942213694254555
+      }
+    },
+    "comparisons": {
+      "expel_trained_to_expel_untrained": {
+        "next_token_kl_mean": 8.117892837524414,
+        "n": 30
+      },
+      "memgen_to_expel_trained": {
+        "next_token_kl_mean": 6.323020156224569,
+        "n": 30
+      },
+      "memgen_to_expel_untrained": {
+        "next_token_kl_mean": 7.631341393788656,
+        "n": 30
+      },
+      "no_latent_to_expel_trained": {
+        "next_token_kl_mean": 7.829769730567932,
+        "n": 30
+      },
+      "no_latent_to_expel_untrained": {
+        "next_token_kl_mean": 10.803346157073975,
+        "n": 30
+      },
+      "no_latent_to_memgen": {
+        "next_token_kl_mean": 11.19873119990031,
+        "n": 30
+      }
+    }
+  },
+  "tokenizer_name": "Qwen/Qwen2.5-1.5B-Instruct"
+}

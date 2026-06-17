@@ -1,0 +1,231 @@
+{
+  "created_at": "2026-06-12 09:35:52",
+  "framework": "Visible-text vs MemGen-style latent experience ablation in FlashRAG/Search-R1 loop",
+  "datasets": [
+    "hotpotqa/dev",
+    "2wikimultihopqa/dev"
+  ],
+  "retriever": "Search-R1 BM25 over wiki-18 via HTTP retrieve API",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/state_experience_blend_sft_a05_steps300/checkpoint-150",
+  "settings": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/state_experience_blend_sft_a05_steps300/checkpoint-150",
+    "hotpot_path": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/dev.jsonl",
+    "twiki_path": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/dev.jsonl",
+    "oracle_train_path": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/train.jsonl",
+    "num_per_dataset": 1,
+    "experience_pool_size": 1000,
+    "experience_topn": 4,
+    "max_visible_tokens": 1536,
+    "max_memory_tokens": 2048,
+    "max_state_chars": 2200,
+    "experience_alpha": 0.5,
+    "max_turns": 5,
+    "topk": 3,
+    "max_new_tokens": 192,
+    "max_input_tokens": 6144,
+    "max_doc_chars": 900,
+    "actors": "custom",
+    "output": "/root/autodl-tmp/memrag_new/memgen_text_vs_latent_dryrun_custom_n2.json"
+  },
+  "actors": {
+    "memgen_prompt_latent_custom": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.5,
+        "avg_searches": 1.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0.0,
+        "avg_support_coverage": 0.5,
+        "any_support_hit_rate": 1.0,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 0.0,
+        "finish_reason_counts": {
+          "answer": 2
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes",
+          "final_answer_hit": true,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to provide the answer. </think>\n<answer> Yes </answer>",
+              "action_type": "answer",
+              "action_text": "Yes",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Aleksander Ford",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out who the mother of the director of the film Polish-Russian War (Film) is. </think>\n<search> mother of director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "mother of director of Polish-Russian War (Film)",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to provide the answer. </think>\n<answer> Aleksander Ford </answer>",
+              "action_type": "answer",
+              "action_text": "Aleksander Ford",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "final_answer_hit": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "memgen_prompt_latent_custom": {
+      "n": 2,
+      "final_answer_hit_rate": 0.5,
+      "avg_searches": 1.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0.0,
+      "avg_support_coverage": 0.5,
+      "any_support_hit_rate": 1.0,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 0.0,
+      "finish_reason_counts": {
+        "answer": 2
+      }
+    }
+  }
+}

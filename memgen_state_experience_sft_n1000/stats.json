@@ -1,0 +1,24 @@
+{
+  "train_source_rows": 1000,
+  "valid_source_rows": 100,
+  "experience_pool_rows": 1000,
+  "train_samples": 3000,
+  "valid_samples": 300,
+  "train_action_counts": {
+    "search": 2000,
+    "answer": 1000
+  },
+  "valid_action_counts": {
+    "search": 200,
+    "answer": 100
+  },
+  "args": {
+    "train_source": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/train.jsonl",
+    "valid_source": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/valid.jsonl",
+    "output_dir": "/root/autodl-tmp/memrag_new/memgen_state_experience_sft_n1000",
+    "train_limit": 0,
+    "valid_limit": 0,
+    "experience_topn": 4,
+    "max_state_chars": 2200
+  }
+}

@@ -1,0 +1,1269 @@
+{
+  "created_at": "2026-06-11 21:47:44",
+  "args": {
+    "hotpot_train": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/train.jsonl",
+    "twiki_train": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/train.jsonl",
+    "output_dir": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_debug_full_n10",
+    "train_per_dataset": 5,
+    "valid_per_dataset": 2,
+    "valid_skip": 100,
+    "max_hops": 2,
+    "topk": 5,
+    "max_doc_chars": 450,
+    "search_url": "http://127.0.0.1:8000/retrieve",
+    "require_full_support": true,
+    "max_scan_per_dataset": 200
+  },
+  "train_n": 10,
+  "valid_n": 4,
+  "train_avg_support_coverage": 1.0,
+  "valid_avg_support_coverage": 1.0,
+  "cache_size": 70,
+  "train_rejected_n": 18,
+  "valid_rejected_n": 3,
+  "train_scan_counts": {
+    "hotpotqa": {
+      "accepted": 5,
+      "scanned": 9,
+      "target": 5
+    },
+    "2wikimultihopqa": {
+      "accepted": 5,
+      "scanned": 19,
+      "target": 5
+    }
+  },
+  "valid_scan_counts": {
+    "hotpotqa": {
+      "accepted": 2,
+      "scanned": 2,
+      "target": 2
+    },
+    "2wikimultihopqa": {
+      "accepted": 2,
+      "scanned": 5,
+      "target": 2
+    }
+  },
+  "errors": [],
+  "rejected_sample": [
+    {
+      "dataset": "hotpotqa",
+      "id": "train_0",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Arthur's Magazine",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Arthur's Lady's Home Magazine",
+            "Arthur (magazine)",
+            "Arthur's Lady's Home Magazine",
+            "Arthur (magazine)",
+            "Arthur (magazine)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "First for Women",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "First Women",
+            "Zara Nakhimovskaya",
+            "Bristol Boat Race",
+            "Timeline of women in the United States",
+            "Timeline of women in the United States"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_1",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Oberoi family",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mohan Singh Oberoi",
+            "Suresh Oberoi",
+            "The Oberoi Group",
+            "Suresh Oberoi",
+            "Vivek Oberoi"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Oberoi Group",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Oberoi Group",
+            "The Oberoi Group",
+            "The Oberoi Group",
+            "Mohan Singh Oberoi",
+            "Sunita Kohli"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_6",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Indogrammodes",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": []
+        },
+        {
+          "turn": 2,
+          "query": "India",
+          "hit_support_titles": [
+            "India"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Air India Limited",
+            "Air India Limited",
+            "State Bank of India",
+            "NKP Salve Challenger Trophy",
+            "State Bank of India"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "id": "train_7",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Global Fighting Championship",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "2018 in Fight Nights Global",
+            "2018 in Fight Nights Global",
+            "2017 in Fight Nights Global",
+            "2018 in Fight Nights Global",
+            "2017 in Fight Nights Global"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Badr Hari",
+          "hit_support_titles": [
+            "Badr Hari"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_0",
+      "support_coverage": 0.25,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Move (1970 film)",
+          "hit_support_titles": [
+            "Move (1970 film)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Move (1970 film)",
+            "Move (1970 film)",
+            "Toby Ross",
+            "R. D. Burman",
+            "Night Moves (1975 film)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Méditerranée (1963 film)",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Volker Schlöndorff",
+            "Société Nouvelle des Forges et Chantiers de la Méditerranée",
+            "Roja Chamankar",
+            "Roja Chamankar",
+            "Air Méditerranée"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_1",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Falcon (film)",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "The Falcon in Mexico",
+            "The Falcon and the Co-eds",
+            "The Gay Falcon",
+            "The Falcon and the Co-eds",
+            "The Falcon in San Francisco"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Valentin the Good",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Valentine Warner",
+            "Valentin Vodev",
+            "Private Valentine: Blonde & Dangerous",
+            "Valentine's Day",
+            "Valentine Warner"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_2",
+      "support_coverage": 0.25,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Charge It to Me",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Holman Melcher",
+            "Kevin Gates",
+            "Movement to impeach Pervez Musharraf",
+            "Edward Snowden",
+            "Son of God (Christianity)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Danger: Diabolik",
+          "hit_support_titles": [
+            "Danger: Diabolik"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Danger: Diabolik",
+            "Danger: Diabolik",
+            "Danger: Diabolik",
+            "Danger: Diabolik",
+            "Danger: Diabolik"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_3",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Mina Gerhardsen",
+          "hit_support_titles": [
+            "Mina Gerhardsen"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mina Gerhardsen",
+            "Mina Gerhardsen",
+            "Werna Gerhardsen",
+            "Werna Gerhardsen",
+            "Rolf Gerhardsen"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Rune Gerhardsen",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Werna Gerhardsen",
+            "Werna Gerhardsen",
+            "Rolf Gerhardsen",
+            "Einar Gerhardsen",
+            "Rolf Gerhardsen"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_4",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Wedding Night in Paradise (1950 film)",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Wedding Night in Paradise (1962 film)",
+            "Wedding Night in Paradise (1962 film)",
+            "William Finley (actor)",
+            "San Francisco (1936 film)",
+            "White Night Wedding"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Géza von Bolváry",
+          "hit_support_titles": [
+            "Géza von Bolváry"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Géza von Bolváry",
+            "Géza von Bolváry",
+            "Wien-Film",
+            "The Theft of the Mona Lisa",
+            "The Theft of the Mona Lisa"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_5",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Sruthilayalu",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Vani Jairam"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "K. V. Mahadevan",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Ezhai Pangalan",
+            "Ezhai Pangalan",
+            "Maadappura",
+            "Delhi Mapillai",
+            "Alli Petra Pillai"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_6",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Rhescuporis I (Odrysian)",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Rhoemetalces I",
+            "Rhoemetalces I",
+            "Rhescuporis II (Astaean)",
+            "Rhescuporis II (Astaean)",
+            "Rhoemetalces II"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Cotys III (Odrysian)",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Cotys I (Odrysian)",
+            "Cotys I (Odrysian)",
+            "Pythodoris II",
+            "History of Bulgaria",
+            "Cotys I (Odrysian)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_7",
+      "support_coverage": 0.25,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Ex-Mrs. Bradford",
+          "hit_support_titles": [
+            "The Ex-Mrs. Bradford"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Ex-Mrs. Bradford",
+            "The Ex-Mrs. Bradford",
+            "The Ex-Mrs. Bradford",
+            "Leonard Black",
+            "David Bradford (photographer)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Star of Santa Clara",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Santa Clara Broncos men's basketball",
+            "Santa Clara University",
+            "Anything's Possible",
+            "Santa Clara Vanguard Drum and Bugle Corps",
+            "Leopardos de Santa Clara"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_8",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Love Route",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Dallas Love Field",
+            "Love's Bus Service",
+            "Assassination of John F. Kennedy",
+            "My Love (Route 94 song)",
+            "Map of Tendre"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Engal Aasan",
+          "hit_support_titles": [
+            "Engal Aasan"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Engal Aasan",
+            "Engal Aasan",
+            "Yogaswami",
+            "Engal Aasan",
+            "Bharathi (Tamil actress)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_9",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Fascist",
+          "hit_support_titles": [
+            "The Fascist"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Fascist and anti-Fascist violence in Italy (1919–1926)",
+            "Fascist mysticism",
+            "Fascist mysticism",
+            "Fascist architecture",
+            "Manifesto of the Fascist Intellectuals"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Luciano Salce",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Where Are You Going on Holiday?",
+            "Ennio Morricone",
+            "Ennio Morricone",
+            "Annie Cordy",
+            "Venantino Venantini"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_10",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Wabash High School",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Wabash College",
+            "Ralph Jones",
+            "Mount Carmel High School (Mount Carmel, Illinois)",
+            "West Wabash Historic District",
+            "Mount Carmel High School (Mount Carmel, Illinois)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Matraville Sports High School",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Matraville, New South Wales",
+            "Matraville, New South Wales",
+            "Glen Ella",
+            "Glen Ella",
+            "Miracle Fish"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_12",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "The Beckoning Silence",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Beckoning sign",
+            "Beckoning sign",
+            "Jock Wallace Jr.",
+            "Willy Angerer",
+            "Broad River Greenway"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Bloody Birthday",
+          "hit_support_titles": [
+            "Bloody Birthday"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Bloody Birthday",
+            "Bloody Birthday",
+            "Happy Birthday to Me (film)",
+            "Bloody Moon",
+            "Bloody Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_14",
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Borunbabur Bondhu",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Thomas Bondhus",
+            "Thomas Bondhus",
+            "Thomas Bondhus",
+            "Amar Bondhu Rashed (film)",
+            "Ei Jibon Nohoi Xuna Bondhu"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Anik Dutta",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Ashchorjyo Prodeep",
+            "Ashchorjyo Prodeep",
+            "Bhooter Bhabishyat",
+            "Bhooter Bhabishyat",
+            "Ashchorjyo Prodeep"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_16",
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Wandering Fires",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "The Wandering Fire",
+            "The Wandering Fire",
+            "Wanderers Amateur Athletic Club",
+            "Operation Wandering Soul (Vietnam War)",
+            "Montreal Wanderers"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Maurice Campbell",
+          "hit_support_titles": [
+            "Maurice Campbell"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Maurice S. Campbell",
+            "Maurice S. Campbell",
+            "Maurice Campbell",
+            "Maurice Campbell",
+            "Maurice S. Campbell"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_100",
+      "support_coverage": 0.25,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Spencer's Mountain",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Big Spencer Mountain",
+            "Big Spencer Mountain",
+            "Spencer Mountain, North Carolina",
+            "Spencer Mountain, North Carolina",
+            "Kibby Mountain"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Karpoora Mullai",
+          "hit_support_titles": [
+            "Karpoora Mullai"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Karpoora Mullai",
+            "Karpoora Mullai",
+            "Ente Sooryaputhrikku",
+            "Ente Sooryaputhrikku",
+            "Pushpaka Vimana (1987 film)"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "id": "train_101",
+      "support_coverage": 0.25,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Paper Bullets",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Cast bullet",
+            ".45-70",
+            "Cast bullet",
+            "Kammerlader",
+            "Schmidt–Rubin"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Karakolda Ayna Var",
+          "hit_support_titles": [
+            "Karakolda Ayna Var"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Ayna",
+            "Ayna",
+            "Emine Ayna",
+            "Ayna (band)",
+            "Ayna (band)"
+          ]
+        }
+      ]
+    }
+  ],
+  "train_stats_sample": [
+    {
+      "id": "train_2",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Allie Goertz",
+          "hit_support_titles": [
+            "Allie Goertz"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Allie Goertz",
+            "Allie Goertz",
+            "Raymond Goertz",
+            "Raymond Goertz",
+            "Raymond Goertz"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Milhouse Van Houten",
+          "hit_support_titles": [
+            "Milhouse Van Houten"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Little Orphan Millie",
+            "A Milhouse Divided",
+            "Pamela Hayden",
+            "Milhouse Van Houten",
+            "Pamela Hayden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Peggy Seeger",
+          "hit_support_titles": [
+            "Peggy Seeger"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Peggy Seeger",
+            "Everything Changes (Peggy Seeger album)",
+            "Peggy Seeger",
+            "Elizabeth Cotten",
+            "Alex Campbell (singer)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ewan MacColl",
+          "hit_support_titles": [
+            "Ewan MacColl"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Jamie Foyers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_4",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Cadmium chloride",
+          "hit_support_titles": [
+            "Cadmium chloride"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Cadmium chloride",
+            "Cadmium chloride",
+            "Cadmium chloride",
+            "Cadmium telluride photovoltaics",
+            "Cadmium"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ethanol",
+          "hit_support_titles": [
+            "Ethanol"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Microsomal ethanol oxidizing system",
+            "Corn ethanol",
+            "Ethanol fuel",
+            "Ethanol",
+            "Ethanol"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_5",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Jonathan Stark (tennis)",
+          "hit_support_titles": [
+            "Jonathan Stark (tennis)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "John Yancey (tennis)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Henri Leconte",
+          "hit_support_titles": [
+            "Henri Leconte"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Henri Leconte",
+            "Henri Leconte",
+            "Henri Leconte",
+            "George Henry Horn",
+            "John LeConte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_8",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "House of Anubis",
+          "hit_support_titles": [
+            "House of Anubis",
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "House of Anubis",
+            "Het Huis Anubis",
+            "House of Anubis",
+            "House of Anubis",
+            "Het Huis Anubis"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Het Huis Anubis",
+          "hit_support_titles": [
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Het Huis Anubis",
+            "Het Huis Anubis",
+            "Anubis en het Pad der 7 Zonden",
+            "Nickelodeon (Dutch TV channel)",
+            "Nickelodeon (Dutch TV channel)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_11",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Diane Gilliam Fisher",
+          "hit_support_titles": [
+            "Diane Gilliam Fisher"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Diane Gilliam Fisher",
+            "Diane Gilliam Fisher",
+            "Kettle Bottom",
+            "Diane Gilliam Fisher",
+            "Kettle Bottom"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Alison Skipper",
+          "hit_support_titles": [
+            "Alison Skipper"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Alison Skipper",
+            "Alison Skipper",
+            "Alison Skipper",
+            "The Master of Ballantrae (1984 film)",
+            "Alison Skipper"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_13",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Soldier (Neil Young song)",
+          "hit_support_titles": [
+            "Neil Young"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "The Loner (Neil Young song)",
+            "I've Been Waiting for You (Neil Young song)",
+            "Wrecking Ball (Neil Young song)",
+            "No More (Neil Young song)",
+            "L.A. (Neil Young song)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Neil Young",
+          "hit_support_titles": [
+            "Neil Young",
+            "Soldier (Neil Young song)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Neil Young Journeys",
+            "Neil Young",
+            "Neil Young: Heart of Gold",
+            "Life (Neil Young & Crazy Horse album)",
+            "Homegrown (Neil Young album)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_15",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "There Is So Much World to See",
+          "hit_support_titles": [
+            "There Is So Much World to See"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "There Is So Much World to See",
+            "There Is So Much World to See",
+            "Julie Stoffer",
+            "Oh World",
+            "Fucking A"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Elvis Presley",
+          "hit_support_titles": [
+            "Elvis Presley"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Starting Today (Elvis Presley song)",
+            "Elvis Presley Enterprises",
+            "Elvis Presley Birthplace",
+            "Joseph A. Tunzi",
+            "Puppet on a String (Elvis Presley song)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_17",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Fatima bint Mubarak Al Ketbi",
+          "hit_support_titles": [
+            "Fatima bint Mubarak Al Ketbi"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Fatima bint Mubarak Al Ketbi",
+            "Fatima bint Mubarak Al Ketbi",
+            "Noura Khalifa Al Suwaidi",
+            "Fatima bint Mubarak Al Ketbi",
+            "Fatima bint Mubarak Al Ketbi"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Zayed bin Sultan Al Nahyan",
+          "hit_support_titles": [
+            "Zayed bin Sultan Al Nahyan"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Sultan bin Zayed bin Sultan Al Nahyan",
+            "Sultan bin Zayed bin Sultan Al Nahyan",
+            "Saqr bin Zayed Al Nahyan",
+            "Saqr bin Zayed Al Nahyan",
+            "Hamdan bin Zayed bin Sultan Al Nahyan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_18",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Private Hell 36",
+          "hit_support_titles": [
+            "Private Hell 36"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Private Hell 36",
+            "Private Hell 36",
+            "Hells Angels MC criminal allegations and incidents",
+            "L.A. Confidential (film)",
+            "Riot in Cell Block 11"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Don Siegel",
+          "hit_support_titles": [
+            "Don Siegel"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Don Siegel",
+            "Clint Eastwood in the 1970s",
+            "Don Siegel",
+            "Telefon (film)",
+            "Dirty Harry"
+          ]
+        }
+      ]
+    }
+  ],
+  "valid_stats_sample": [
+    {
+      "id": "train_100",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Prince William, Duke of Gloucester",
+          "hit_support_titles": [
+            "Prince William, Duke of Gloucester"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Prince William Frederick, Duke of Gloucester and Edinburgh",
+            "Prince William Frederick, Duke of Gloucester and Edinburgh",
+            "Prince William, Duke of Gloucester",
+            "Prince William, Duke of Gloucester",
+            "Prince William Henry, Duke of Gloucester and Edinburgh"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Prince George of Denmark",
+          "hit_support_titles": [
+            "Prince George of Denmark"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Prince George Valdemar of Denmark",
+            "Prince George Valdemar of Denmark",
+            "Prince George of Greece and Denmark",
+            "Prince George of Denmark",
+            "Prince Axel of Denmark"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_101",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Erik Nielsen Whitehorse International Airport",
+          "hit_support_titles": [
+            "Erik Nielsen Whitehorse International Airport"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Erik Nielsen Whitehorse International Airport",
+            "Erik Nielsen Whitehorse International Airport",
+            "Erik Nielsen",
+            "Erik Nielsen Whitehorse International Airport",
+            "Alkan Air"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Air North",
+          "hit_support_titles": [
+            "Air North"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "North Star Air",
+            "North Carolina Air National Guard",
+            "North Dakota Air National Guard",
+            "North Dakota Air National Guard",
+            "Bel Air North, Maryland"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_102",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Buried Treasure (1921 film)",
+          "hit_support_titles": [
+            "Buried Treasure (1921 film)"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Buried Treasure (1921 film)",
+            "Buried Treasure (1921 film)",
+            "Buried Treasure (1921 film)",
+            "The Return of Tarzan",
+            "Eveready Harton in Buried Treasure"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "George D. Baker",
+          "hit_support_titles": [
+            "George D. Baker"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "George D. Baker",
+            "George D. Baker",
+            "George Fisher Baker",
+            "George Fisher Baker",
+            "George W. C. Baker"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_104",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Tim Reid",
+          "hit_support_titles": [
+            "Tim Reid"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Tim and Tom",
+            "Tim Reid (politician)",
+            "Tim Reid (politician)",
+            "Tim Reid",
+            "Tim Reid"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Devon Martinus",
+          "hit_support_titles": [
+            "Devon Martinus"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Devon Martinus",
+            "Devon Martinus",
+            "Martinus Thomsen",
+            "Martinus Andersen",
+            "Rudi Martinus van Dijk"
+          ]
+        }
+      ]
+    }
+  ]
+}

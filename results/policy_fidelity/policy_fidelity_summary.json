@@ -1,0 +1,107 @@
+{
+  "n": 100,
+  "datasets": {
+    "gsm8k": 50,
+    "triviaqa": 50
+  },
+  "arms": {
+    "extractive_text": {
+      "n": 100,
+      "gold_prob_mean": 0.3875150255789049,
+      "gold_margin_mean": -1.1057505005598067,
+      "gold_margin_se": 0.2970021111004555,
+      "margin_delta_vs_no_mean": 0.198794929087162,
+      "margin_delta_vs_no_se": 0.03722562036099329,
+      "candidate_kl_full_to_arm_mean": 1.03949719079692,
+      "candidate_kl_full_to_arm_se": 0.13188630962030373,
+      "next_token_kl_full_to_arm_mean": 0.06993675969250035,
+      "top10_overlap_with_full_mean": 0.7830000000000001,
+      "margin_recovery_ratio_mean": -0.04124221683712835,
+      "margin_recovery_ratio_se": 0.12420871950648389
+    },
+    "fixed_soft_prompt": {
+      "n": 100,
+      "gold_prob_mean": 0.17192596822875203,
+      "gold_margin_mean": -2.3964996433258055,
+      "gold_margin_se": 0.2583418631748742,
+      "margin_delta_vs_no_mean": -1.0919542136788367,
+      "margin_delta_vs_no_se": 0.10943070754995358,
+      "candidate_kl_full_to_arm_mean": 1.5705448808072475,
+      "candidate_kl_full_to_arm_se": 0.1379913334556223,
+      "next_token_kl_full_to_arm_mean": 13.751409940719604,
+      "top10_overlap_with_full_mean": 0.0,
+      "margin_recovery_ratio_mean": -0.4416200749250445,
+      "margin_recovery_ratio_se": 0.6443599404232637
+    },
+    "full_text": {
+      "n": 100,
+      "gold_prob_mean": 0.7210439990460873,
+      "gold_margin_mean": 1.380685822069645,
+      "gold_margin_se": 0.11659062572105786,
+      "margin_delta_vs_no_mean": 2.6852312517166137,
+      "margin_delta_vs_no_se": 0.24915354422722663,
+      "candidate_kl_full_to_arm_mean": 0.0,
+      "candidate_kl_full_to_arm_se": 0.0,
+      "next_token_kl_full_to_arm_mean": 0.0,
+      "top10_overlap_with_full_mean": 1.0,
+      "margin_recovery_ratio_mean": 1.0,
+      "margin_recovery_ratio_se": 0.0
+    },
+    "latent_compressed": {
+      "n": 100,
+      "gold_prob_mean": 0.11119899133776925,
+      "gold_margin_mean": -3.2233431816101072,
+      "gold_margin_se": 0.2634666248205929,
+      "margin_delta_vs_no_mean": -1.9187977519631385,
+      "margin_delta_vs_no_se": 0.13256706124740614,
+      "candidate_kl_full_to_arm_mean": 2.0560984495845447,
+      "candidate_kl_full_to_arm_se": 0.14556139998639755,
+      "next_token_kl_full_to_arm_mean": 13.524228563308716,
+      "top10_overlap_with_full_mean": 0.0,
+      "margin_recovery_ratio_mean": -0.3003373300163825,
+      "margin_recovery_ratio_se": 1.3724883229143139
+    },
+    "no_memory": {
+      "n": 100,
+      "gold_prob_mean": 0.370184681545652,
+      "gold_margin_mean": -1.3045454296469687,
+      "gold_margin_se": 0.3009510576271547,
+      "margin_delta_vs_no_mean": 0.0,
+      "margin_delta_vs_no_se": 0.0,
+      "candidate_kl_full_to_arm_mean": 1.0895223782387253,
+      "candidate_kl_full_to_arm_se": 0.1349295632045913,
+      "next_token_kl_full_to_arm_mean": 0.0499583698407514,
+      "top10_overlap_with_full_mean": 0.6849999999999998,
+      "margin_recovery_ratio_mean": 0.0,
+      "margin_recovery_ratio_se": 0.0
+    },
+    "random_latent": {
+      "n": 100,
+      "gold_prob_mean": 0.2035172965234233,
+      "gold_margin_mean": -2.366579966545105,
+      "gold_margin_se": 0.27341439274241575,
+      "margin_delta_vs_no_mean": -1.062034536898136,
+      "margin_delta_vs_no_se": 0.10333091454186775,
+      "candidate_kl_full_to_arm_mean": 1.5184663541438914,
+      "candidate_kl_full_to_arm_se": 0.13945909130205963,
+      "next_token_kl_full_to_arm_mean": 12.24307963371277,
+      "top10_overlap_with_full_mean": 0.0030000000000000005,
+      "margin_recovery_ratio_mean": -0.36940028672378394,
+      "margin_recovery_ratio_se": 0.6185880804026335
+    },
+    "summary_text": {
+      "n": 100,
+      "gold_prob_mean": 0.418874394853774,
+      "gold_margin_mean": -0.7692339184880257,
+      "gold_margin_se": 0.28093658162369894,
+      "margin_delta_vs_no_mean": 0.5353115111589432,
+      "margin_delta_vs_no_se": 0.11907544077426054,
+      "candidate_kl_full_to_arm_mean": 0.8515723428335398,
+      "candidate_kl_full_to_arm_se": 0.11981665264393655,
+      "next_token_kl_full_to_arm_mean": 0.10320784823232315,
+      "top10_overlap_with_full_mean": 0.7189999999999999,
+      "margin_recovery_ratio_mean": 0.2178234280992385,
+      "margin_recovery_ratio_se": 0.12569748824126753
+    }
+  }
+}

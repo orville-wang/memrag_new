@@ -1,0 +1,670 @@
+{
+  "created_at": "2026-06-15 23:11:15",
+  "framework": "Visible-text vs MemGen-style latent experience ablation in FlashRAG/Search-R1 loop",
+  "datasets": [
+    "hotpotqa/dev",
+    "2wikimultihopqa/dev"
+  ],
+  "retriever": "Search-R1 BM25 over wiki-18 via HTTP retrieve API",
+  "model": "/root/autodl-tmp/models/HuggingFaceTB/SmolLM3-3B",
+  "weaver_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "trigger_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/SmolLM3-3B/triviaqa/weaver-sft/pn=8_pl=4_in=0_il=4",
+  "settings": {
+    "model": "/root/autodl-tmp/models/HuggingFaceTB/SmolLM3-3B",
+    "weaver_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "trigger_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt_latents_len": 4,
+    "inference_latents_len": 4,
+    "max_prompt_aug_num": 8,
+    "max_inference_aug_num": 0,
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/SmolLM3-3B/triviaqa/weaver-sft/pn=8_pl=4_in=0_il=4",
+    "hotpot_path": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/dev.jsonl",
+    "twiki_path": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/dev.jsonl",
+    "oracle_train_path": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/train.jsonl",
+    "num_per_dataset": 2,
+    "experience_pool_size": 1000,
+    "experience_topn": 4,
+    "compact_experience_topn": 2,
+    "max_visible_tokens": 1536,
+    "compact_visible_tokens": 512,
+    "max_memory_tokens": 2048,
+    "max_state_chars": 2200,
+    "experience_alpha": 0.5,
+    "max_turns": 2,
+    "topk": 3,
+    "max_new_tokens": 96,
+    "max_input_tokens": 4096,
+    "max_doc_chars": 900,
+    "actors": "custom,latent",
+    "output": "/root/autodl-tmp/memrag_new/smollm3_memgen_searchr1_sanity_n4.json"
+  },
+  "actors": {
+    "memgen_prompt_latent_custom": {
+      "summary": {
+        "n": 4,
+        "final_answer_hit_rate": 0.0,
+        "avg_searches": 1.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.25,
+        "no_hit_search_rate_per_search": 0.25,
+        "avg_support_coverage": 0.375,
+        "any_support_hit_rate": 0.5,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.25,
+        "avg_all_support_hit_turn_found_only": 2.0,
+        "max_turn_failure_rate": 0.5,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 0.0,
+        "finish_reason_counts": {
+          "max_turn": 2,
+          "other": 2
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "max_turn",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 1.0,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": 2,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. First, I will search for their nationalities. \n\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> It is clear that Scott Derrickson is American. Now I need to determine if Ed Wood is also American.\n\n<search> Ed Wood nationality </search>",
+              "action_type": "search",
+              "action_text": "Ed Wood nationality",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Ed Wood"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Paul Marco",
+                "Stephen C. Apostolof",
+                "Ed Wood"
+              ],
+              "docs": [
+                {
+                  "id": "14003646",
+                  "title": "Paul Marco",
+                  "score": 9.677399635314941
+                },
+                {
+                  "id": "5155883",
+                  "title": "Stephen C. Apostolof",
+                  "score": 9.113499641418457
+                },
+                {
+                  "id": "15665221",
+                  "title": "Ed Wood",
+                  "score": 8.833700180053711
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_1",
+          "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "golden_answers": [
+            "Chief of Protocol"
+          ],
+          "supporting_titles": [
+            "Kiss and Tell (1945 film)",
+            "Shirley Temple"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think>\nTo find the answer, I need to search for the woman who portrayed Corliss Archer in the film Kiss and the government position she held. Let me search for that information.",
+              "action_type": "other",
+              "action_text": "<think>\nTo find the answer, I need to search for the woman who portrayed Corliss Archer in the film Kiss and the government position she held. Let me search for that information.",
+              "aug_mask": null,
+              "experience_tokens": 0
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "max_turn",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 1,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find the director of the film \"Polish-Russian War\" and then find the mother of that director. </think>\n<search> director of the film \"Polish-Russian War\" </search>",
+              "action_type": "search",
+              "action_text": "director of the film \"Polish-Russian War\"",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> The director of the film \"Polish-Russian War\" is Xawery Wajda. Now I need to find the mother of Xawery Wajda. </think>\n<search> mother of Xawery Wajda </search>",
+              "action_type": "search",
+              "action_text": "mother of Xawery Wajda",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [],
+              "hit_answer": false,
+              "top_titles": [
+                "Xawery Dunikowski",
+                "Andrzej Wajda",
+                "Xawery Czernicki"
+              ],
+              "docs": [
+                {
+                  "id": "9898168",
+                  "title": "Xawery Dunikowski",
+                  "score": 12.479900360107422
+                },
+                {
+                  "id": "4159427",
+                  "title": "Andrzej Wajda",
+                  "score": 11.458600044250488
+                },
+                {
+                  "id": "16325680",
+                  "title": "Xawery Czernicki",
+                  "score": 10.59119987487793
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_1",
+          "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+          "golden_answers": [
+            "The Mask Of Fu Manchu",
+            "Mask of Fu Manchu",
+            "The Mask of Fu Manchu"
+          ],
+          "supporting_titles": [
+            "Blind Shaft",
+            "The Mask of Fu Manchu"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out which film came out first, Blind Shaft or The Mask of Fu Man, by searching for their release dates. </think> I will search for the release dates of Blind Shaft and The Mask of Fu Man. </think> Search for the release dates of Blind Shaft and The Mask of Fu Man. </think> If I find the release dates, I will determine which film came out first. </think> If I need to call a search engine for further information,",
+              "action_type": "other",
+              "action_text": "<think> I need to find out which film came out first, Blind Shaft or The Mask of Fu Man, by searching for their release dates. </think> I will search for the release dates of Blind Shaft and The Mask of Fu Man. </think> Search for the release dates of Blind Shaft and The Mask of Fu Man. </think> If ",
+              "aug_mask": null,
+              "experience_tokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "memgen_experience_blend_a0.5": {
+      "summary": {
+        "n": 4,
+        "final_answer_hit_rate": 0.0,
+        "avg_searches": 0.75,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.25,
+        "no_hit_search_rate_per_search": 0.3333333333333333,
+        "avg_support_coverage": 0.25,
+        "any_support_hit_rate": 0.5,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.25,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 646.875,
+        "finish_reason_counts": {
+          "max_turn": 1,
+          "other": 3
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 1372,
+          "visible_experience_tokens_avg_per_turn": 686.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. I should search for their nationalities. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 492,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "My search results indicate that Scott Derrickson is an American director, screenwriter, and producer. However, the information about Ed Wood's nationality is not available. Therefore, I cannot determine if Scott Derrickson and Ed Wood are of the same nationality.",
+              "action_type": "other",
+              "action_text": "My search results indicate that Scott Derrickson is an American director, screenwriter, and producer. However, the information about Ed Wood's nationality is not available. Therefore, I cannot determine if Scott Derrickson and Ed Wood are of the same nationality.",
+              "aug_mask": null,
+              "experience_tokens": 880,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed"
+            }
+          ]
+        },
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_1",
+          "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "golden_answers": [
+            "Chief of Protocol"
+          ],
+          "supporting_titles": [
+            "Kiss and Tell (1945 film)",
+            "Shirley Temple"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 579,
+          "visible_experience_tokens_avg_per_turn": 579.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out the government position held by the woman who portrayed Corliss Archer in the film \"Kiss and <search> \"M<search> \" in order to answer the question. </think> I will search for the woman who played Corliss Archer in the movie \"Kiss and <search> \"M<search> \" and find out her government position. </think> If I don't find the answer, I will search for the movie \"",
+              "action_type": "other",
+              "action_text": "<think> I need to find out the government position held by the woman who portrayed Corliss Archer in the film \"Kiss and <search> \"M<search> \" in order to answer the question. </think> I will search for the woman who played Corliss Archer in the movie \"Kiss and <search> \"M<search> \" and find out her ",
+              "aug_mask": null,
+              "experience_tokens": 579,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What is the date of death of the director of film Jasper And The Haunted House?\nUseful searches: S1: Jasper and the Haunted House; S2: George Pal\nSupporting fact targets: Jasper and the Haunted House; George Pal\nRetrieved evidence titles: Jasper and the Haunted House; George Pal; Arnold Leibovit; The Puppetoon Movie\n\nExperience 2:\nQuestion: Which country the director of film Kaun? is from?\nUseful searches: S1: Kaun?; S2: Ram Gopal Varma\nSupporting fact targets: Kaun?; Ram Gopal Varma\nRetrieved evidence titles: Hello Kaun? Pehchaan Kaun; Sasha Kaun; Waqt Batayega Kaun Apna Kaun Paraya; Ram Gopal Varma; Prashant Raj Sachdev\n\nExperience 3:\nQuestion: What is the date of birth of the director of film Henry Vi, Part 1 (Film)?\nUseful s"
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "max_turn",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 1,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 1537,
+          "visible_experience_tokens_avg_per_turn": 768.5,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find the mother of the director of the film \"Polish-Russian War.\" </think>\n<search> director of film \"Polish-Russian War\" mother </search>",
+              "action_type": "search",
+              "action_text": "director of film \"Polish-Russian War\" mother",
+              "aug_mask": null,
+              "experience_tokens": 553,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "My search query returned a result that does not directly mention the mother of the director of the film \"Polish-Russian War.\" I need to search for the mother of the director, Xawery Szydlo.\n\n<search> mother of Xawery Szydlo </search>",
+              "action_type": "search",
+              "action_text": "mother of Xawery Szydlo",
+              "aug_mask": null,
+              "experience_tokens": 984,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [],
+              "hit_answer": false,
+              "top_titles": [
+                "Zbigniew Szydlo",
+                "Zbigniew Szydlo",
+                "Zbigniew Szydlo"
+              ],
+              "docs": [
+                {
+                  "id": "5722945",
+                  "title": "Zbigniew Szydlo",
+                  "score": 11.851799964904785
+                },
+                {
+                  "id": "12229640",
+                  "title": "Zbigniew Szydlo",
+                  "score": 11.33899974822998
+                },
+                {
+                  "id": "2760565",
+                  "title": "Zbigniew Szydlo",
+                  "score": 11.338998794555664
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_1",
+          "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+          "golden_answers": [
+            "The Mask Of Fu Manchu",
+            "Mask of Fu Manchu",
+            "The Mask of Fu Manchu"
+          ],
+          "supporting_titles": [
+            "Blind Shaft",
+            "The Mask of Fu Manchu"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 554,
+          "visible_experience_tokens_avg_per_turn": 554.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out which movie came out first, Blind Shaft or The Mask of Fu Manji. I will search the release dates of these movies.  </search>",
+              "action_type": "other",
+              "action_text": "<think> I need to find out which movie came out first, Blind Shaft or The Mask of Fu Manji. I will search the release dates of these movies.  </search>",
+              "aug_mask": null,
+              "experience_tokens": 554,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Which film came out first, Flower & Garnet or Nowhere Boys: The Book Of Shadows?\nUseful searches: S1: Flower & Garnet; S2: Nowhere Boys: The Book of Shadows\nSupporting fact targets: Flower & Garnet; Nowhere Boys: The Book of Shadows\nRetrieved evidence titles: Flower & Garnet; Jubilee Trail; Nowhere Boys: The Book of Shadows\n\nExperience 2:\nQuestion: Which film came out first, A Hill In Korea or Ek Anek Aur Ekta?\nUseful searches: S1: A Hill in Korea; S2: Ek Anek Aur Ekta\nSupporting fact targets: A Hill in Korea; Ek Anek Aur Ekta\nRetrieved evidence titles: A Hill in Korea; Christopher R. Hill; Ek Anek Aur Ekta\n\nExperience 3:\nQuestion: Which film came out first, Could It Happen Here? or Forgotten Babies?\nUseful searches: S1: Forgott"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "memgen_prompt_latent_custom": {
+      "n": 4,
+      "final_answer_hit_rate": 0.0,
+      "avg_searches": 1.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.25,
+      "no_hit_search_rate_per_search": 0.25,
+      "avg_support_coverage": 0.375,
+      "any_support_hit_rate": 0.5,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.25,
+      "avg_all_support_hit_turn_found_only": 2.0,
+      "max_turn_failure_rate": 0.5,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 0.0,
+      "finish_reason_counts": {
+        "max_turn": 2,
+        "other": 2
+      }
+    },
+    "memgen_experience_blend_a0.5": {
+      "n": 4,
+      "final_answer_hit_rate": 0.0,
+      "avg_searches": 0.75,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.25,
+      "no_hit_search_rate_per_search": 0.3333333333333333,
+      "avg_support_coverage": 0.25,
+      "any_support_hit_rate": 0.5,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.25,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 646.875,
+      "finish_reason_counts": {
+        "max_turn": 1,
+        "other": 3
+      }
+    }
+  }
+}

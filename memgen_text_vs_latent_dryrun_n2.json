@@ -1,0 +1,830 @@
+{
+  "created_at": "2026-06-12 09:37:26",
+  "framework": "Visible-text vs MemGen-style latent experience ablation in FlashRAG/Search-R1 loop",
+  "datasets": [
+    "hotpotqa/dev",
+    "2wikimultihopqa/dev"
+  ],
+  "retriever": "Search-R1 BM25 over wiki-18 via HTTP retrieve API",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/state_experience_blend_sft_a05_steps300/checkpoint-150",
+  "settings": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/state_experience_blend_sft_a05_steps300/checkpoint-150",
+    "hotpot_path": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/dev.jsonl",
+    "twiki_path": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/dev.jsonl",
+    "oracle_train_path": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/train.jsonl",
+    "num_per_dataset": 1,
+    "experience_pool_size": 1000,
+    "experience_topn": 4,
+    "max_visible_tokens": 1536,
+    "max_memory_tokens": 2048,
+    "max_state_chars": 2200,
+    "experience_alpha": 0.5,
+    "max_turns": 5,
+    "topk": 3,
+    "max_new_tokens": 192,
+    "max_input_tokens": 6144,
+    "max_doc_chars": 900,
+    "actors": "custom,policy_text,visible_text,latent",
+    "output": "/root/autodl-tmp/memrag_new/memgen_text_vs_latent_dryrun_n2.json"
+  },
+  "actors": {
+    "memgen_prompt_latent_custom": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.5,
+        "avg_searches": 1.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0.0,
+        "avg_support_coverage": 0.5,
+        "any_support_hit_rate": 1.0,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 0.0,
+        "finish_reason_counts": {
+          "answer": 2
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes",
+          "final_answer_hit": true,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to provide the answer. </think>\n<answer> Yes </answer>",
+              "action_type": "answer",
+              "action_text": "Yes",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Aleksander Ford",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 0,
+          "visible_experience_tokens_avg_per_turn": 0.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out who the mother of the director of the film Polish-Russian War (Film) is. </think>\n<search> mother of director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "mother of director of Polish-Russian War (Film)",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to provide the answer. </think>\n<answer> Aleksander Ford </answer>",
+              "action_type": "answer",
+              "action_text": "Aleksander Ford",
+              "aug_mask": null,
+              "experience_tokens": 0,
+              "final_answer_hit": false
+            }
+          ]
+        }
+      ]
+    },
+    "policy_text": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.5,
+        "avg_searches": 1.5,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0.0,
+        "avg_support_coverage": 0.75,
+        "any_support_hit_rate": 1.0,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.5,
+        "avg_all_support_hit_turn_found_only": 2.0,
+        "max_turn_failure_rate": 0.0,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 90.0,
+        "finish_reason_counts": {
+          "answer": 2
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes, Scott Derrickson and Ed Wood were of the same nationality, American.",
+          "final_answer_hit": true,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 270,
+          "visible_experience_tokens_avg_per_turn": 90.0,
+          "support_coverage": 1.0,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": 2,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to search for the nationality of Scott Derrickson first. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 90,
+              "memory_text_preview": "Retrieval policy guidance for the current question.\nThese guidelines are not evidence. You must still search and use retrieved documents as the evidence path.\n1. For comparison questions, search each compared entity separately before answering.\n2. For bridge questions, search the bridge entity and the target entity when needed.\n3. Avoid repeating a query that has already been searched.\n4. Do not answer after only one partial supporting fact when another comparison target remains unchecked.",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to search for the nationality of Ed Wood next. </think>\n<search> Ed Wood nationality </search>",
+              "action_type": "search",
+              "action_text": "Ed Wood nationality",
+              "aug_mask": null,
+              "experience_tokens": 90,
+              "memory_text_preview": "Retrieval policy guidance for the current question.\nThese guidelines are not evidence. You must still search and use retrieved documents as the evidence path.\n1. For comparison questions, search each compared entity separately before answering.\n2. For bridge questions, search the bridge entity and the target entity when needed.\n3. Avoid repeating a query that has already been searched.\n4. Do not answer after only one partial supporting fact when another comparison target remains unchecked.",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Ed Wood"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Paul Marco",
+                "Stephen C. Apostolof",
+                "Ed Wood"
+              ],
+              "docs": [
+                {
+                  "id": "14003646",
+                  "title": "Paul Marco",
+                  "score": 9.677399635314941
+                },
+                {
+                  "id": "5155883",
+                  "title": "Stephen C. Apostolof",
+                  "score": 9.113499641418457
+                },
+                {
+                  "id": "15665221",
+                  "title": "Ed Wood",
+                  "score": 8.833700180053711
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "step_text": "<think> I have gathered the required information. Concise answer. </think>\n<answer> Yes, Scott Derrickson and Ed Wood were of the same nationality, American. </answer>",
+              "action_type": "answer",
+              "action_text": "Yes, Scott Derrickson and Ed Wood were of the same nationality, American.",
+              "aug_mask": null,
+              "experience_tokens": 90,
+              "memory_text_preview": "Retrieval policy guidance for the current question.\nThese guidelines are not evidence. You must still search and use retrieved documents as the evidence path.\n1. For comparison questions, search each compared entity separately before answering.\n2. For bridge questions, search the bridge entity and the target entity when needed.\n3. Avoid repeating a query that has already been searched.\n4. Do not answer after only one partial supporting fact when another comparison target remains unchecked.",
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Roma Gąsiorowska",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 180,
+          "visible_experience_tokens_avg_per_turn": 90.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to search for the director of the film Polish-Russian War (Film) to find the mother's name. </think>\n<search> director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "director of Polish-Russian War (Film)",
+              "aug_mask": null,
+              "experience_tokens": 90,
+              "memory_text_preview": "Retrieval policy guidance for the current question.\nThese guidelines are not evidence. You must still search and use retrieved documents as the evidence path.\n1. For comparison questions, search each compared entity separately before answering.\n2. For bridge questions, search the bridge entity and the target entity when needed.\n3. Avoid repeating a query that has already been searched.\n4. Do not answer after only one partial supporting fact when another comparison target remains unchecked.",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I have found the answer. </think>\n<answer> Roma Gąsiorowska </answer>",
+              "action_type": "answer",
+              "action_text": "Roma Gąsiorowska",
+              "aug_mask": null,
+              "experience_tokens": 90,
+              "memory_text_preview": "Retrieval policy guidance for the current question.\nThese guidelines are not evidence. You must still search and use retrieved documents as the evidence path.\n1. For comparison questions, search each compared entity separately before answering.\n2. For bridge questions, search the bridge entity and the target entity when needed.\n3. Avoid repeating a query that has already been searched.\n4. Do not answer after only one partial supporting fact when another comparison target remains unchecked.",
+              "final_answer_hit": false
+            }
+          ]
+        }
+      ]
+    },
+    "visible_experience_text": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.0,
+        "avg_searches": 0.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0,
+        "avg_support_coverage": 0.0,
+        "any_support_hit_rate": 0.0,
+        "avg_first_support_hit_turn_found_only": null,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 376.5,
+        "finish_reason_counts": {
+          "answer": 1,
+          "other": 1
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "<answer>Scott Derrickson and Ed Wood were both American.",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 347,
+          "visible_experience_tokens_avg_per_turn": 347.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to review the evidence on Scott Derrickson and Ed Wood to answer the question. <think> <search> Scott Derrickson; Ed Wood <answer> <answer>Scott Derrickson and Ed Wood were both American. </answer>",
+              "action_type": "answer",
+              "action_text": "<answer>Scott Derrickson and Ed Wood were both American.",
+              "aug_mask": null,
+              "experience_tokens": 347,
+              "memory_text_preview": "Visible retrieval experience for multi-hop QA.\n\nThese examples are policy experience, not evidence for the current question. Use them only to decide the next Search or Answer action; current evidence must come from retrieved documents.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed ",
+              "final_answer_hit": false
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 406,
+          "visible_experience_tokens_avg_per_turn": 406.0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "thro waste\n search \"Polish-Russian War (Film)\"  // Search for the film title\n support fact target: Polish-Russian War (Film)  // Retrieve information about the film\n support fact target: Ram Gopal Varma  // Retrieve information about the director\n support fact target: Russian  // Retrieve information about the nationality of the director\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of the director's mother\n support fact target: Russian  // Retrieve information about the nationality of",
+              "action_type": "other",
+              "action_text": "thro waste\n search \"Polish-Russian War (Film)\"  // Search for the film title\n support fact target: Polish-Russian War (Film)  // Retrieve information about the film\n support fact target: Ram Gopal Varma  // Retrieve information about the director\n support fact target: Russian  // Retrieve informatio",
+              "aug_mask": null,
+              "experience_tokens": 406,
+              "memory_text_preview": "Visible retrieval experience for multi-hop QA.\n\nThese examples are policy experience, not evidence for the current question. Use them only to decide the next Search or Answer action; current evidence must come from retrieved documents.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What "
+            }
+          ]
+        }
+      ]
+    },
+    "memgen_experience_blend_a0.5": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.5,
+        "avg_searches": 1.5,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0.0,
+        "avg_support_coverage": 0.75,
+        "any_support_hit_rate": 1.0,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.5,
+        "avg_all_support_hit_turn_found_only": 2.0,
+        "max_turn_failure_rate": 0.0,
+        "avg_copied_memory_queries": 0.0,
+        "copy_query_rate_per_search": 0.0,
+        "avg_visible_experience_tokens_per_turn": 771.6666666666667,
+        "finish_reason_counts": {
+          "answer": 1,
+          "other": 1
+        }
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes, Scott Derrickson and Ed Wood were of the same nationality.",
+          "final_answer_hit": true,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 2302,
+          "visible_experience_tokens_avg_per_turn": 767.3333333333334,
+          "support_coverage": 1.0,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": 2,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to search for Scott Derrickson's nationality. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "experience_tokens": 494,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> I need to search for Ed Wood's nationality. </think>\n<search> Ed Wood nationality </search>",
+              "action_type": "search",
+              "action_text": "Ed Wood nationality",
+              "aug_mask": null,
+              "experience_tokens": 913,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Ed Wood"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Paul Marco",
+                "Stephen C. Apostolof",
+                "Ed Wood"
+              ],
+              "docs": [
+                {
+                  "id": "14003646",
+                  "title": "Paul Marco",
+                  "score": 9.677399635314941
+                },
+                {
+                  "id": "5155883",
+                  "title": "Stephen C. Apostolof",
+                  "score": 9.113499641418457
+                },
+                {
+                  "id": "15665221",
+                  "title": "Ed Wood",
+                  "score": 8.833700180053711
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "step_text": "<think> I have gathered the necessary information. </think>\n<answer> Yes, Scott Derrickson and Ed Wood were of the same nationality. </answer>",
+              "action_type": "answer",
+              "action_text": "Yes, Scott Derrickson and Ed Wood were of the same nationality.",
+              "aug_mask": null,
+              "experience_tokens": 895,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed",
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "copied_memory_queries": 0,
+          "visible_experience_tokens_total": 1552,
+          "visible_experience_tokens_avg_per_turn": 776.0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need evidence about the director of Polish-Russian War (Film) before answering the question. </think>\n<search> director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "director of Polish-Russian War (Film)",
+              "aug_mask": null,
+              "experience_tokens": 556,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What",
+              "query_copied_from_memory": false,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "(thinking slowly)\nAnswer: Aleksander Ford",
+              "action_type": "other",
+              "action_text": "(thinking slowly)\nAnswer: Aleksander Ford",
+              "aug_mask": null,
+              "experience_tokens": 996,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "memgen_prompt_latent_custom": {
+      "n": 2,
+      "final_answer_hit_rate": 0.5,
+      "avg_searches": 1.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0.0,
+      "avg_support_coverage": 0.5,
+      "any_support_hit_rate": 1.0,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 0.0,
+      "finish_reason_counts": {
+        "answer": 2
+      }
+    },
+    "policy_text": {
+      "n": 2,
+      "final_answer_hit_rate": 0.5,
+      "avg_searches": 1.5,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0.0,
+      "avg_support_coverage": 0.75,
+      "any_support_hit_rate": 1.0,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.5,
+      "avg_all_support_hit_turn_found_only": 2.0,
+      "max_turn_failure_rate": 0.0,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 90.0,
+      "finish_reason_counts": {
+        "answer": 2
+      }
+    },
+    "visible_experience_text": {
+      "n": 2,
+      "final_answer_hit_rate": 0.0,
+      "avg_searches": 0.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0,
+      "avg_support_coverage": 0.0,
+      "any_support_hit_rate": 0.0,
+      "avg_first_support_hit_turn_found_only": null,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 376.5,
+      "finish_reason_counts": {
+        "answer": 1,
+        "other": 1
+      }
+    },
+    "memgen_experience_blend_a0.5": {
+      "n": 2,
+      "final_answer_hit_rate": 0.5,
+      "avg_searches": 1.5,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0.0,
+      "avg_support_coverage": 0.75,
+      "any_support_hit_rate": 1.0,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.5,
+      "avg_all_support_hit_turn_found_only": 2.0,
+      "max_turn_failure_rate": 0.0,
+      "avg_copied_memory_queries": 0.0,
+      "copy_query_rate_per_search": 0.0,
+      "avg_visible_experience_tokens_per_turn": 771.6666666666667,
+      "finish_reason_counts": {
+        "answer": 1,
+        "other": 1
+      }
+    }
+  }
+}

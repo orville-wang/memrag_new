@@ -33,12 +33,7 @@ latent_controller_debug/
 latent_controller_hotpot2wiki_n300/
 memgen_state_experience_sft_n1000/
 multihop_oracle_sft*/
-MemGen/
-Search-R1/
-results/policy_fidelity/
 results/mechanistic_paths/*.run.log
-results/mechanistic_paths/dryrun_figures/
-results/mechanistic_paths/figures_*_n30*/
 
 # Local environment
 .env

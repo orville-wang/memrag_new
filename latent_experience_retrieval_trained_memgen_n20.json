@@ -1,0 +1,1429 @@
+{
+  "created_at": "2026-06-11 20:19:53",
+  "dataset": "RUC-NLPIR/FlashRAG_datasets/nq",
+  "retriever": "Search-R1 BM25 over official PeterJinGo/wiki-18 corpus",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "num_test": 20,
+  "topk": 5,
+  "experience_source": "official NQ train examples whose raw question retrieval hit a golden answer",
+  "experiences": [
+    {
+      "index": 1,
+      "question": "big little lies season 2 how many episodes?",
+      "query": "big little lies season 2 how many episodes?",
+      "golden_answers": [
+        "seven"
+      ],
+      "hit_rank": 2,
+      "hit_doc_id": "5237922",
+      "hit_title": "Big Little Lies (TV series)",
+      "hit_snippet": "shows of 2017. A soundtrack for the series was released on Google Play and iTunes on March 31, 2017. The first season was released on Blu-ray and DVD on August 1, 2017. Big Little Lies (TV series) Big Little Lies is an A"
+    },
+    {
+      "index": 2,
+      "question": "who sang waiting for a girl like you?",
+      "query": "who sang waiting for a girl like you?",
+      "golden_answers": [
+        "Foreigner"
+      ],
+      "hit_rank": 1,
+      "hit_doc_id": "14423432",
+      "hit_title": "Waiting for a Girl Like You",
+      "hit_snippet": "Waiting for a Girl Like You \"\"Waiting for a Girl Like You\"\" is a 1981 power ballad by the British-American rock band Foreigner. The distinctive synthesizer theme was performed by the then-little-known Thomas Dolby, and t"
+    },
+    {
+      "index": 3,
+      "question": "where do you cross the arctic circle in norway?",
+      "query": "where do you cross the arctic circle in norway?",
+      "golden_answers": [
+        "Saltfjellet"
+      ],
+      "hit_rank": 1,
+      "hit_doc_id": "4686223",
+      "hit_title": "Arctic Norway",
+      "hit_snippet": "Arctic Norway Arctic Norway () comprises the northernmost parts of Norway that lie above the Arctic circle. Norway, being one of the most stretched-out countries in the world, reaches from approximately 58°N to 81°N, so "
+    }
+  ],
+  "summary": {
+    "raw_question": {
+      "n": 20,
+      "hit_at_k": 3,
+      "hit_rate": 0.15,
+      "mrr_at_k": 0.15
+    },
+    "base_no_experience": {
+      "n": 20,
+      "hit_at_k": 10,
+      "hit_rate": 0.5,
+      "mrr_at_k": 0.3375
+    },
+    "base_text_experience": {
+      "n": 20,
+      "hit_at_k": 6,
+      "hit_rate": 0.3,
+      "mrr_at_k": 0.2666666666666667
+    },
+    "memgen_latent_experience": {
+      "n": 20,
+      "hit_at_k": 0,
+      "hit_rate": 0.0,
+      "mrr_at_k": 0.0
+    }
+  },
+  "rows": [
+    {
+      "index": 0,
+      "question": "who got the first nobel prize in physics?",
+      "golden_answers": [
+        "Wilhelm Conrad Röntgen"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who got the first nobel prize in physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.331100463867188,
+          "top1_doc_id": "16315118",
+          "top1_title": "Nobel Prize in Physics"
+        },
+        "base_no_experience": {
+          "query": "Who won the first Nobel Prize in Physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.776399612426758,
+          "top1_doc_id": "4005905",
+          "top1_title": "First Step to Nobel Prize in Physics"
+        },
+        "base_text_experience": {
+          "query": "who won the first Nobel Prize in Physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.776399612426758,
+          "top1_doc_id": "4005905",
+          "top1_title": "First Step to Nobel Prize in Physics"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, London",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.633299827575684,
+          "top1_doc_id": "4029719",
+          "top1_title": "East Finchley",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 1,
+      "question": "when is the next deadpool movie being released?",
+      "golden_answers": [
+        "May 18, 2018"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the next deadpool movie being released?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.552399635314941,
+          "top1_doc_id": "15847468",
+          "top1_title": "Deadpool (film)"
+        },
+        "base_no_experience": {
+          "query": "When is the next Deadpool movie scheduled to be released?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 13.552399635314941,
+          "top1_doc_id": "15847468",
+          "top1_title": "Deadpool (film)"
+        },
+        "base_text_experience": {
+          "query": "when does the next Deadpool movie come out?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.095499992370605,
+          "top1_doc_id": "10881277",
+          "top1_title": "Deadpool (video game)"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, London",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.633299827575684,
+          "top1_doc_id": "4029719",
+          "top1_title": "East Finchley",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 2,
+      "question": "which mode is used for short wave broadcast service?",
+      "golden_answers": [
+        "Olivia",
+        "MFSK"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "which mode is used for short wave broadcast service?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.251500129699707,
+          "top1_doc_id": "15046172",
+          "top1_title": "Sender Zehlendorf"
+        },
+        "base_no_experience": {
+          "query": "Shortwave broadcast service uses the medium wave (AM) mode.",
+          "hit": false,
+          "rank": null,
+          "top1_score": 21.887500762939453,
+          "top1_doc_id": "14928921",
+          "top1_title": "Shortwave listening"
+        },
+        "base_text_experience": {
+          "query": "short wave broadcast service mode",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.536499977111816,
+          "top1_doc_id": "15046172",
+          "top1_title": "Sender Zehlendorf"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, what is the mode used for short wave broadcast service in Finchley?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.977699279785156,
+          "top1_doc_id": "10634873",
+          "top1_title": "Finchley Common",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 3,
+      "question": "the south west wind blows across nigeria between?",
+      "golden_answers": [
+        "till September"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "the south west wind blows across nigeria between?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.746399879455566,
+          "top1_doc_id": "4122243",
+          "top1_title": "South Equatorial Current"
+        },
+        "base_no_experience": {
+          "query": "Wind direction in Nigeria between South West and North East",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.911499977111816,
+          "top1_doc_id": "13288403",
+          "top1_title": "Johor Bahru"
+        },
+        "base_text_experience": {
+          "query": "south west wind blows across nigeria between",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.746399879455566,
+          "top1_doc_id": "4122243",
+          "top1_title": "South Equatorial Current"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 4,
+      "question": "what does hp mean in war and order?",
+      "golden_answers": [
+        "hit points or health points"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what does hp mean in war and order?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.624099731445312,
+          "top1_doc_id": "11684098",
+          "top1_title": "Handley Page"
+        },
+        "base_no_experience": {
+          "query": "HP in War & Order refers to Health Points.",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 10.712300300598145,
+          "top1_doc_id": "3490737",
+          "top1_title": "Health (gaming)"
+        },
+        "base_text_experience": {
+          "query": "what does HP stand for in War and Order?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.624099731445312,
+          "top1_doc_id": "11684098",
+          "top1_title": "Handley Page"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 5,
+      "question": "who wrote the first declaration of human rights?",
+      "golden_answers": [
+        "Cyrus"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who wrote the first declaration of human rights?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.960100173950195,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "base_no_experience": {
+          "query": "Declaration of Human Rights - Who wrote it?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.093899726867676,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "base_text_experience": {
+          "query": "who wrote the first declaration of human rights?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.960100173950195,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 6,
+      "question": "who is the owner of reading football club?",
+      "golden_answers": [
+        "Xiu Li Dai",
+        "Dai Xiuli",
+        "Dai Yongge",
+        "Yongge Dai"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is the owner of reading football club?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.12660026550293,
+          "top1_doc_id": "10016017",
+          "top1_title": "Thames Valley Royals proposal"
+        },
+        "base_no_experience": {
+          "query": "Who owns Reading Football Club?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 10.334699630737305,
+          "top1_doc_id": "13506636",
+          "top1_title": "Reading F.C."
+        },
+        "base_text_experience": {
+          "query": "who owns reading fc?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 8.825499534606934,
+          "top1_doc_id": "6300981",
+          "top1_title": "Alex Read"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 7,
+      "question": "when is the next scandal episode coming out?",
+      "golden_answers": [
+        "February 1, 2018"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the next scandal episode coming out?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.113200187683105,
+          "top1_doc_id": "3749431",
+          "top1_title": "Everything's Coming Up Mellie"
+        },
+        "base_no_experience": {
+          "query": "When will the next Scandal (TV series) episode be released?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.272199630737305,
+          "top1_doc_id": "8886226",
+          "top1_title": "Cobra (TV series)"
+        },
+        "base_text_experience": {
+          "query": "when does the next scandal episode air?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.08489990234375,
+          "top1_doc_id": "6431904",
+          "top1_title": "Three's a Crowd"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, where do you cross the arctic circle in finchley?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.871000289916992,
+          "top1_doc_id": "8155988",
+          "top1_title": "Finchley Central (game)",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 8,
+      "question": "when is the last time the philadelphia won the superbowl?",
+      "golden_answers": [
+        "Super Bowl LII,",
+        "2017"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the last time the philadelphia won the superbowl?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.040499687194824,
+          "top1_doc_id": "16088401",
+          "top1_title": "The One After the Superbowl"
+        },
+        "base_no_experience": {
+          "query": "When did the Philadelphia Eagles last win Super Bowl?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 21.184799194335938,
+          "top1_doc_id": "14749285",
+          "top1_title": "2011 Philadelphia Eagles season"
+        },
+        "base_text_experience": {
+          "query": "when is the last time the philadelphia eagles won the super bowl?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 20.21269989013672,
+          "top1_doc_id": "18498882",
+          "top1_title": "2017 Philadelphia Eagles season"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 9,
+      "question": "who was the first lady nominated member of the rajya sabha?",
+      "golden_answers": [
+        "Mary Kom"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who was the first lady nominated member of the rajya sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.209800720214844,
+          "top1_doc_id": "13315934",
+          "top1_title": "1952 Indian Rajya Sabha elections"
+        },
+        "base_no_experience": {
+          "query": "Who was the first woman nominated as a member of the Rajya Sabha in India?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 22.013500213623047,
+          "top1_doc_id": "13315934",
+          "top1_title": "1952 Indian Rajya Sabha elections"
+        },
+        "base_text_experience": {
+          "query": "who was the first woman elected as a member of the Rajya Sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 20.23040008544922,
+          "top1_doc_id": "5285945",
+          "top1_title": "Jharna Das"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, what is the first lady nominated member of the Rajya Sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.209800720214844,
+          "top1_doc_id": "13315934",
+          "top1_title": "1952 Indian Rajya Sabha elections",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 10,
+      "question": "what is the most current adobe flash player version?",
+      "golden_answers": [
+        "28.0.0.137"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the most current adobe flash player version?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.80470085144043,
+          "top1_doc_id": "16616524",
+          "top1_title": "Adobe Flash Player"
+        },
+        "base_no_experience": {
+          "query": "What is the latest version of Adobe Flash Player available?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 23.705299377441406,
+          "top1_doc_id": "11372017",
+          "top1_title": "Adobe Flash"
+        },
+        "base_text_experience": {
+          "query": "What is the latest version of Adobe Flash Player available?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 23.705299377441406,
+          "top1_doc_id": "11372017",
+          "top1_title": "Adobe Flash"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, what is the most current adobe flash player version?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.80470085144043,
+          "top1_doc_id": "16616524",
+          "top1_title": "Adobe Flash Player",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 11,
+      "question": "swan lake the sleeping beauty and the nutcracker are three famous ballets by?",
+      "golden_answers": [
+        "Pyotr Ilyich Tchaikovsky"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "swan lake the sleeping beauty and the nutcracker are three famous ballets by?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 29.882699966430664,
+          "top1_doc_id": "3194598",
+          "top1_title": "Antal Doráti"
+        },
+        "base_no_experience": {
+          "query": "Who composed Swan Lake, Sleeping Beauty, and The Nutcracker?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 22.390399932861328,
+          "top1_doc_id": "16051899",
+          "top1_title": "Swan Lake (1895)"
+        },
+        "base_text_experience": {
+          "query": "swan lake the sleeping beauty and the nutcracker are three famous ballets by whom?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 29.882699966430664,
+          "top1_doc_id": "3194598",
+          "top1_title": "Antal Doráti"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 12,
+      "question": "how many episodes are there in dragon ball z?",
+      "golden_answers": [
+        "291 episodes",
+        "291"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "how many episodes are there in dragon ball z?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.864200592041016,
+          "top1_doc_id": "12835691",
+          "top1_title": "Dragon Ball Z"
+        },
+        "base_no_experience": {
+          "query": "Wikipedia search query:",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.55720043182373,
+          "top1_doc_id": "8980659",
+          "top1_title": "Yamli"
+        },
+        "base_text_experience": {
+          "query": "how many episodes of dragon ball z are there?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.864200592041016,
+          "top1_doc_id": "12835691",
+          "top1_title": "Dragon Ball Z"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 13,
+      "question": "cast of law & order special victim unit?",
+      "golden_answers": [
+        "Kelli Giddish",
+        "Richard Belzer",
+        "Stephanie March",
+        "Diane Neal",
+        "Ice-T",
+        "Danny Pino",
+        "Dann Florek",
+        "Tamara Tunie",
+        "Michaela McManus",
+        "Mariska Hargitay",
+        "Adam Beach",
+        "B. D. Wong",
+        "Christopher Meloni",
+        "Raúl Esparza",
+        "Michelle Hurd",
+        "Peter Scanavino"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "cast of law & order special victim unit?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 16.29450035095215,
+          "top1_doc_id": "6921215",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "base_no_experience": {
+          "query": "Who were the cast members of Law & Order: Special Victims Unit?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.553300857543945,
+          "top1_doc_id": "13110909",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "base_text_experience": {
+          "query": "cast of law & order special victim unit",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 16.29450035095215,
+          "top1_doc_id": "6921215",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 14,
+      "question": "who designed the garden city of new earswick?",
+      "golden_answers": [
+        "planner Raymond Unwin",
+        "architect Barry Parker",
+        "Raymond Unwin"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who designed the garden city of new earswick?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.941600799560547,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "base_no_experience": {
+          "query": "Who designed the Garden City of New Earswick?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.941600799560547,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "base_text_experience": {
+          "query": "who designed the garden city of new earswick?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.941600799560547,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley Garden City",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.838800430297852,
+          "top1_doc_id": "9621869",
+          "top1_title": "Finchley and Golders Green (UK Parliament constituency)",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 15,
+      "question": "what is the first step in the evolution of the eye?",
+      "golden_answers": [
+        "photoreceptor proteins that sense light",
+        "eyespots"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the first step in the evolution of the eye?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.151399612426758,
+          "top1_doc_id": "15384557",
+          "top1_title": "Evolution of the eye"
+        },
+        "base_no_experience": {
+          "query": "What was the first evolutionary step that led to the development of eyes in organisms?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 12.641799926757812,
+          "top1_doc_id": "13253552",
+          "top1_title": "E. coli long-term evolution experiment"
+        },
+        "base_text_experience": {
+          "query": "What is the first evolutionary step in the development of the human eye?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 12.90410041809082,
+          "top1_doc_id": "2117036",
+          "top1_title": "Theory of mind"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, what is the first step in the evolution of the eye?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.348600387573242,
+          "top1_doc_id": "4029719",
+          "top1_title": "East Finchley",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 16,
+      "question": "where is the tv show the curse of oak island filmed?",
+      "golden_answers": [
+        "Oak Island"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where is the tv show the curse of oak island filmed?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.235200881958008,
+          "top1_doc_id": "2209195",
+          "top1_title": "The Curse of Oak Island"
+        },
+        "base_no_experience": {
+          "query": "Wikipedia search query:",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.55720043182373,
+          "top1_doc_id": "8980659",
+          "top1_title": "Yamli"
+        },
+        "base_text_experience": {
+          "query": "where is the tv show the curse of oak island filmed?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.235200881958008,
+          "top1_doc_id": "2209195",
+          "top1_title": "The Curse of Oak Island"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 17,
+      "question": "where is gall bladder situated in human body?",
+      "golden_answers": [
+        "beneath the liver"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where is gall bladder situated in human body?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.609399795532227,
+          "top1_doc_id": "16920797",
+          "top1_title": "3D Indiana"
+        },
+        "base_no_experience": {
+          "query": "Where is the gallbladder located in the human body?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 12.807000160217285,
+          "top1_doc_id": "1989304",
+          "top1_title": "Gallbladder"
+        },
+        "base_text_experience": {
+          "query": "where is the gallbladder located in the human body?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 12.807000160217285,
+          "top1_doc_id": "1989304",
+          "top1_title": "Gallbladder"
+        },
+        "memgen_latent_experience": {
+          "query": "None",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.2677998542785645,
+          "top1_doc_id": "11343193",
+          "top1_title": "Laila Ali",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 18,
+      "question": "who is the current director of the us mint?",
+      "golden_answers": [
+        "David J. Ryder",
+        "David Motl"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is the current director of the us mint?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.545900344848633,
+          "top1_doc_id": "1413420",
+          "top1_title": "Mexican Mint"
+        },
+        "base_no_experience": {
+          "query": "Who is currently serving as the Director of the U.S. Mint?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 13.28689956665039,
+          "top1_doc_id": "16231574",
+          "top1_title": "Nellie Tayloe Ross"
+        },
+        "base_text_experience": {
+          "query": "current director of the us mint",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.545900344848633,
+          "top1_doc_id": "1413420",
+          "top1_title": "Mexican Mint"
+        },
+        "memgen_latent_experience": {
+          "query": "Finchley, London",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.633299827575684,
+          "top1_doc_id": "4029719",
+          "top1_title": "East Finchley",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 19,
+      "question": "who was named african footballer of the year 2014?",
+      "golden_answers": [
+        "Yaya Touré"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who was named african footballer of the year 2014?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.465800285339355,
+          "top1_doc_id": "8414677",
+          "top1_title": "Noko Matlou"
+        },
+        "base_no_experience": {
+          "query": "African Footballer of the Year 2014: Who won this award in 2014?",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 15.478500366210938,
+          "top1_doc_id": "12445902",
+          "top1_title": "Leeds United F.C."
+        },
+        "base_text_experience": {
+          "query": "who won African Footballer of the Year in 2014?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.559200286865234,
+          "top1_doc_id": "5267535",
+          "top1_title": "Ngozi Ebere"
+        },
+        "memgen_latent_experience": {
+          "query": "Finch",
+          "hit": false,
+          "rank": null,
+          "top1_score": 7.355699062347412,
+          "top1_doc_id": "685770",
+          "top1_title": "Gouldian finch",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/Qwen2.5-1.5B-Instruct/triviaqa/weaver-sft/pn=8_pl=8_in=0_il=8/model",
+  "caveat": "MemGen uses the released TriviaQA weaver-sft checkpoint. This checkpoint is trained for answer generation with prompt latent augmentation, not specifically for standalone search-query rewriting."
+}

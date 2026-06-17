@@ -1,0 +1,99 @@
+{
+  "created_at": "2026-06-16 21:09:30",
+  "schema": "one JSON object per eval sample; all tensor fields stripped",
+  "experiment": "MemGen vs retrieval-conditioned trained weaver vs retrieval-conditioned untrained weaver",
+  "settings": {
+    "model": "/root/autodl-tmp/models/HuggingFaceTB/SmolLM3-3B",
+    "weaver_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "trigger_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/SmolLM3-3B/triviaqa/weaver-sft/pn=8_pl=4_in=0_il=4",
+    "num_samples": 30,
+    "memory_bank_size": 800,
+    "memory_topk": 3,
+    "latent_len": 4,
+    "max_prompt_tokens": 768,
+    "max_weaver_context_tokens": 1024,
+    "max_new_tokens": 32,
+    "top_tokens": 8,
+    "collect_attentions": true,
+    "seed": 42,
+    "untrained_seed": 1234,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_target_modules": "q_proj,v_proj",
+    "lora_dropout": 0.1,
+    "attn_implementation": "eager",
+    "torch_dtype": "bfloat16",
+    "device": "cuda",
+    "output": "results/mechanistic_paths/smollm3_memgen_expel_paths_n30.jsonl"
+  },
+  "warnings": [],
+  "summary": {
+    "n": 30,
+    "arms": {
+      "no_latent": {
+        "gold_answer_prob_mean": 0.12179463691233347,
+        "search_prob_mean": 0.6700761547477062,
+        "answer_prob_mean": 0.15506423774252956,
+        "gold_vs_distractor_margin_mean": 1.735176412264506,
+        "search_vs_answer_margin_mean": 1.9768823385238647,
+        "next_token_entropy_mean": 0.03765118978917599,
+        "latent_norm_mean": 0.0
+      },
+      "memgen": {
+        "gold_answer_prob_mean": 0.10446022234779472,
+        "search_prob_mean": 0.7069570157749695,
+        "answer_prob_mean": 0.15414908716532713,
+        "gold_vs_distractor_margin_mean": 1.106667733192444,
+        "search_vs_answer_margin_mean": 2.257311443487803,
+        "next_token_entropy_mean": 5.939402532577515,
+        "latent_norm_mean": 70.16605885823567
+      },
+      "expel_trained": {
+        "gold_answer_prob_mean": 0.13176755765841033,
+        "search_prob_mean": 0.7134244611443137,
+        "answer_prob_mean": 0.18865055192339544,
+        "gold_vs_distractor_margin_mean": 1.0139630794525147,
+        "search_vs_answer_margin_mean": 2.089734137058258,
+        "next_token_entropy_mean": 3.9837441563606264,
+        "latent_norm_mean": 70.48161214192709
+      },
+      "expel_untrained": {
+        "gold_answer_prob_mean": 0.1799035438646873,
+        "search_prob_mean": 0.5912051059761628,
+        "answer_prob_mean": 0.24123113160021603,
+        "gold_vs_distractor_margin_mean": 1.353192440668742,
+        "search_vs_answer_margin_mean": 1.4039854685465494,
+        "next_token_entropy_mean": 6.132103029886881,
+        "latent_norm_mean": 70.14778238932291
+      }
+    },
+    "comparisons": {
+      "expel_trained_to_expel_untrained": {
+        "next_token_kl_mean": 16.492249011993408,
+        "n": 30
+      },
+      "memgen_to_expel_trained": {
+        "next_token_kl_mean": 1.3245812475681304,
+        "n": 30
+      },
+      "memgen_to_expel_untrained": {
+        "next_token_kl_mean": 10.674619197845459,
+        "n": 30
+      },
+      "no_latent_to_expel_trained": {
+        "next_token_kl_mean": 3.153160564104716,
+        "n": 30
+      },
+      "no_latent_to_expel_untrained": {
+        "next_token_kl_mean": 21.949975458780923,
+        "n": 30
+      },
+      "no_latent_to_memgen": {
+        "next_token_kl_mean": 2.973846205075582,
+        "n": 30
+      }
+    }
+  },
+  "tokenizer_name": "/root/autodl-tmp/models/HuggingFaceTB/SmolLM3-3B"
+}

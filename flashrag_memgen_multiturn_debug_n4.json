@@ -1,0 +1,1125 @@
+{
+  "created_at": "2026-06-11 21:13:57",
+  "framework": "FlashRAG SearchR1Pipeline-compatible prompt/trajectory logger",
+  "datasets": [
+    "hotpotqa/dev",
+    "2wikimultihopqa/dev"
+  ],
+  "retriever": "Search-R1 BM25 over official PeterJinGo/wiki-18 corpus via HTTP retrieve API",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "settings": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/Qwen2.5-1.5B-Instruct/triviaqa/weaver-sft/pn=8_pl=8_in=0_il=8/model",
+    "hotpot_path": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/dev.jsonl",
+    "twiki_path": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/dev.jsonl",
+    "num_per_dataset": 2,
+    "max_turns": 3,
+    "topk": 3,
+    "max_new_tokens": 160,
+    "max_input_tokens": 6144,
+    "max_doc_chars": 900,
+    "output": "/root/autodl-tmp/memrag_new/flashrag_memgen_multiturn_debug_n4.json"
+  },
+  "actors": {
+    "base_qwen": {
+      "summary": {
+        "n": 4,
+        "final_answer_hit_rate": 0.0,
+        "avg_searches": 1.75,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.25,
+        "no_hit_search_rate_per_search": 0.14285714285714285,
+        "avg_support_coverage": 0.625,
+        "any_support_hit_rate": 0.75,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": 2.0,
+        "all_support_hit_rate": 0.5,
+        "avg_all_support_hit_turn_found_only": 2.0,
+        "max_turn_failure_rate": 0.25
+      },
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 2,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 1.0,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": 2,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think>\nTo determine whether Scott Derrickson and Ed Wood were of the same nationality, we need to research their nationalities.\n</think>\n\n<search>Scott Derrickson nationality</search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<information>\nEd Wood (born Edward John \"Teddy\" Wood; January 17, 1929 – August 10, 1978) was an American filmmaker, actor, author, and inventor who made over 100 feature-length films during his lifetime. His work spanned genres including science fiction, comedy, horror, and biographical drama. He is considered one of the most influential filmmakers of all time, though he never achieved mainstream success or critical acclaim. He died in poverty after being unable to pay off his debts.\n</information>\n\n<search>Ed Wood nationality</search>",
+              "action_type": "search",
+              "action_text": "Ed Wood nationality",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Ed Wood"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Paul Marco",
+                "Stephen C. Apostolof",
+                "Ed Wood"
+              ],
+              "docs": [
+                {
+                  "id": "14003646",
+                  "title": "Paul Marco",
+                  "score": 9.677399635314941
+                },
+                {
+                  "id": "5155883",
+                  "title": "Stephen C. Apostolof",
+                  "score": 9.113499641418457
+                },
+                {
+                  "id": "15665221",
+                  "title": "Ed Wood",
+                  "score": 8.833700180053711
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "step_text": "</answer>",
+              "action_type": "other",
+              "action_text": "</answer>",
+              "aug_mask": null
+            }
+          ]
+        },
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_1",
+          "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "golden_answers": [
+            "Chief of Protocol"
+          ],
+          "supporting_titles": [
+            "Kiss and Tell (1945 film)",
+            "Shirley Temple"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Actress played Corliss Archer in the 1949 film \"Kiss and Tell\". Her name was Janet Waldo.",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 1,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think>\nTo answer this question, we need to identify which actress played Corliss Archer in the 1980s film \"Kiss and Tell\" and then determine her government position.\n</think>\n\n<search>Corliss Archer in Kiss and Tell</search>",
+              "action_type": "search",
+              "action_text": "Corliss Archer in Kiss and Tell",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [],
+              "hit_answer": false,
+              "top_titles": [
+                "Janet Waldo",
+                "A Kiss for Corliss",
+                "Kiss and Tell (play)"
+              ],
+              "docs": [
+                {
+                  "id": "13056365",
+                  "title": "Janet Waldo",
+                  "score": 20.528099060058594
+                },
+                {
+                  "id": "2952755",
+                  "title": "A Kiss for Corliss",
+                  "score": 19.89349937438965
+                },
+                {
+                  "id": "29089",
+                  "title": "Kiss and Tell (play)",
+                  "score": 19.784099578857422
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<answer>Actress played Corliss Archer in the 1949 film \"Kiss and Tell\". Her name was Janet Waldo.</answer>",
+              "action_type": "answer",
+              "action_text": "Actress played Corliss Archer in the 1949 film \"Kiss and Tell\". Her name was Janet Waldo.",
+              "aug_mask": null,
+              "final_answer_hit": false
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Alexander Ford",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think>\nTo determine who the mother of the director of \"Polish-Russian War\" (film) is, I need to identify the director of that film.\n</think>\n\n<search>director of Polish-Russian War film</search>",
+              "action_type": "search",
+              "action_text": "director of Polish-Russian War film",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<answer>Alexander Ford</answer>",
+              "action_type": "answer",
+              "action_text": "Alexander Ford",
+              "aug_mask": null,
+              "final_answer_hit": false
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_1",
+          "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+          "golden_answers": [
+            "The Mask Of Fu Manchu",
+            "Mask of Fu Manchu",
+            "The Mask of Fu Manchu"
+          ],
+          "supporting_titles": [
+            "Blind Shaft",
+            "The Mask of Fu Manchu"
+          ],
+          "finish_reason": "max_turn",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 3,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 1.0,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": 2,
+          "all_support_hit_turn": 2,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think>\nTo determine which film came out first, we need to look at their release dates.\n</think>\n\n<search>Blind Shaft movie release date</search>",
+              "action_type": "search",
+              "action_text": "Blind Shaft movie release date",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Blind Shaft"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Blind Date (1987 film)",
+                "Blind Shaft",
+                "Teen Titans: Trouble in Tokyo"
+              ],
+              "docs": [
+                {
+                  "id": "9830948",
+                  "title": "Blind Date (1987 film)",
+                  "score": 11.466300010681152
+                },
+                {
+                  "id": "5785129",
+                  "title": "Blind Shaft",
+                  "score": 11.314599990844727
+                },
+                {
+                  "id": "2859068",
+                  "title": "Teen Titans: Trouble in Tokyo",
+                  "score": 10.67199993133545
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<search>The Mask Of Fu Manchu movie release date</search>",
+              "action_type": "search",
+              "action_text": "The Mask Of Fu Manchu movie release date",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "The Mask of Fu Manchu"
+              ],
+              "hit_answer": true,
+              "top_titles": [
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu"
+              ],
+              "docs": [
+                {
+                  "id": "13700516",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 21.3528995513916
+                },
+                {
+                  "id": "13700515",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 21.334299087524414
+                },
+                {
+                  "id": "10794006",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 20.576000213623047
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "step_text": "<search>Blind Shaft vs The Mask Of Fu Manchu release dates</search>",
+              "action_type": "search",
+              "action_text": "Blind Shaft vs The Mask Of Fu Manchu release dates",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "The Mask of Fu Manchu"
+              ],
+              "hit_answer": true,
+              "top_titles": [
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu"
+              ],
+              "docs": [
+                {
+                  "id": "13700515",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.990100860595703
+                },
+                {
+                  "id": "13700516",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.958200454711914
+                },
+                {
+                  "id": "10794006",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.256099700927734
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "trained_memgen": {
+      "summary": {
+        "n": 4,
+        "final_answer_hit_rate": 0.25,
+        "avg_searches": 1.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.25,
+        "no_hit_search_rate_per_search": 0.25,
+        "avg_support_coverage": 0.375,
+        "any_support_hit_rate": 0.75,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": 1.0,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes",
+          "final_answer_hit": true,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> Scott Derrickson is American. </think>\n<answer> Yes </answer>",
+              "action_type": "answer",
+              "action_text": "Yes",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_1",
+          "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "golden_answers": [
+            "Chief of Protocol"
+          ],
+          "supporting_titles": [
+            "Kiss and Tell (1945 film)",
+            "Shirley Temple"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Secretary of State",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 1,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find out who portrayed Corliss Archer in the film Kiss and Tell and what government position she held. </think>\n<search> Corliss Archer in Kiss and Tell </search>",
+              "action_type": "search",
+              "action_text": "Corliss Archer in Kiss and Tell",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "duplicate_query": false,
+              "hit_support_titles": [],
+              "hit_answer": false,
+              "top_titles": [
+                "Janet Waldo",
+                "A Kiss for Corliss",
+                "Kiss and Tell (play)"
+              ],
+              "docs": [
+                {
+                  "id": "13056365",
+                  "title": "Janet Waldo",
+                  "score": 20.528099060058594
+                },
+                {
+                  "id": "2952755",
+                  "title": "A Kiss for Corliss",
+                  "score": 19.89349937438965
+                },
+                {
+                  "id": "29089",
+                  "title": "Kiss and Tell (play)",
+                  "score": 19.784099578857422
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> Janet Waldo portrayed Corliss Archer in the film Kiss and Tell. </think>\n<answer> Secretary of State </answer>",
+              "action_type": "answer",
+              "action_text": "Secretary of State",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "final_answer_hit": false
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Aleksander Ford",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find the mother of the director of the film Polish-Russian War (Film). </think>\n<search> mother of director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "mother of director of Polish-Russian War (Film)",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> The mother of the director of the film Polish-Russian War (Film) is Aleksander Ford. </think>\n<answer> Aleksander Ford </answer>",
+              "action_type": "answer",
+              "action_text": "Aleksander Ford",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "final_answer_hit": false
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_1",
+          "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+          "golden_answers": [
+            "The Mask Of Fu Manchu",
+            "Mask of Fu Manchu",
+            "The Mask of Fu Manchu"
+          ],
+          "supporting_titles": [
+            "Blind Shaft",
+            "The Mask of Fu Manchu"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "\"Blind Shaft\"",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": 1,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to compare the release dates of \"Blind Shaft\" and \"The Mask of Fu Manchu\" to determine which one came out first. </think>\n<search> release dates of \"Blind Shaft\" and \"The Mask of Fu Manchu\" </search>",
+              "action_type": "search",
+              "action_text": "release dates of \"Blind Shaft\" and \"The Mask of Fu Manchu\"",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "The Mask of Fu Manchu"
+              ],
+              "hit_answer": true,
+              "top_titles": [
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu",
+                "The Mask of Fu Manchu"
+              ],
+              "docs": [
+                {
+                  "id": "13700515",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.990100860595703
+                },
+                {
+                  "id": "13700516",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.958200454711914
+                },
+                {
+                  "id": "10794006",
+                  "title": "The Mask of Fu Manchu",
+                  "score": 18.256099700927734
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> \"Blind Shaft\" was released in 1932, while \"The Mask of Fu Manchu\" was released in 1932. Therefore, \"Blind Shaft\" came out first. </think>\n<answer> \"Blind Shaft\" </answer>",
+              "action_type": "answer",
+              "action_text": "\"Blind Shaft\"",
+              "aug_mask": [
+                [
+                  1,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100,
+                  -100
+                ]
+              ],
+              "final_answer_hit": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "base_qwen": {
+      "n": 4,
+      "final_answer_hit_rate": 0.0,
+      "avg_searches": 1.75,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.25,
+      "no_hit_search_rate_per_search": 0.14285714285714285,
+      "avg_support_coverage": 0.625,
+      "any_support_hit_rate": 0.75,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": 2.0,
+      "all_support_hit_rate": 0.5,
+      "avg_all_support_hit_turn_found_only": 2.0,
+      "max_turn_failure_rate": 0.25
+    },
+    "trained_memgen": {
+      "n": 4,
+      "final_answer_hit_rate": 0.25,
+      "avg_searches": 1.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.25,
+      "no_hit_search_rate_per_search": 0.25,
+      "avg_support_coverage": 0.375,
+      "any_support_hit_rate": 0.75,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": 1.0,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0
+    }
+  }
+}

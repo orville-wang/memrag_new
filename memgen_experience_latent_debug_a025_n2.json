@@ -1,0 +1,309 @@
+{
+  "created_at": "2026-06-12 00:34:56",
+  "framework": "FlashRAG/Search-R1-compatible multi-turn loop with MemGen-style hidden experience latents",
+  "datasets": [
+    "hotpotqa/dev",
+    "2wikimultihopqa/dev"
+  ],
+  "retriever": "Search-R1 BM25 over wiki-18 via HTTP retrieve API",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/Qwen2.5-1.5B-Instruct/triviaqa/weaver-sft/pn=8_pl=8_in=0_il=8/model",
+  "settings": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "memgen_load_model_path": "/root/autodl-tmp/memrag_new/MemGen_checkpoints/Kana-s_MemGen/Qwen2.5-1.5B-Instruct/triviaqa/weaver-sft/pn=8_pl=8_in=0_il=8/model",
+    "hotpot_path": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/dev.jsonl",
+    "twiki_path": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/dev.jsonl",
+    "oracle_train_path": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_full_n1000_top3_doc220/train.jsonl",
+    "num_per_dataset": 1,
+    "experience_pool_size": 1000,
+    "experience_topn": 4,
+    "max_memory_tokens": 2048,
+    "max_state_chars": 2200,
+    "experience_alpha": 0.25,
+    "max_turns": 2,
+    "topk": 3,
+    "max_new_tokens": 192,
+    "max_input_tokens": 6144,
+    "max_doc_chars": 900,
+    "actors": "custom,experience",
+    "output": "/root/autodl-tmp/memrag_new/memgen_experience_latent_debug_a025_n2.json"
+  },
+  "actors": {
+    "memgen_prompt_latent_custom": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.5,
+        "avg_searches": 1.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0.0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0.0,
+        "avg_support_coverage": 0.5,
+        "any_support_hit_rate": 1.0,
+        "avg_first_support_hit_turn_found_only": 1.0,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Yes",
+          "final_answer_hit": true,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to determine if Scott Derrickson and Ed Wood were of the same nationality. </think>\n<search> Scott Derrickson nationality </search>",
+              "action_type": "search",
+              "action_text": "Scott Derrickson nationality",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Scott Derrickson"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Scott Derrickson",
+                "Scott Derrickson",
+                "Scott Derrickson"
+              ],
+              "docs": [
+                {
+                  "id": "5441538",
+                  "title": "Scott Derrickson",
+                  "score": 13.929400444030762
+                },
+                {
+                  "id": "14728950",
+                  "title": "Scott Derrickson",
+                  "score": 13.728400230407715
+                },
+                {
+                  "id": "5441536",
+                  "title": "Scott Derrickson",
+                  "score": 12.43589973449707
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> Scott Derrickson is American. </think>\n<answer> Yes </answer>",
+              "action_type": "answer",
+              "action_text": "Yes",
+              "aug_mask": null,
+              "final_answer_hit": true
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "answer",
+          "final_answer": "Aleksander Ford",
+          "final_answer_hit": false,
+          "searches": 1,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.5,
+          "any_support_hit": true,
+          "first_support_hit_turn": 1,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "<think> I need to find the mother of the director of the film Polish-Russian War (Film). </think>\n<search> mother of director of Polish-Russian War (Film) </search>",
+              "action_type": "search",
+              "action_text": "mother of director of Polish-Russian War (Film)",
+              "aug_mask": null,
+              "duplicate_query": false,
+              "hit_support_titles": [
+                "Polish-Russian War (film)"
+              ],
+              "hit_answer": false,
+              "top_titles": [
+                "Polish-Russian War (film)",
+                "Polish-Russian War (film)",
+                "Aleksander Ford"
+              ],
+              "docs": [
+                {
+                  "id": "2975291",
+                  "title": "Polish-Russian War (film)",
+                  "score": 13.136099815368652
+                },
+                {
+                  "id": "5949984",
+                  "title": "Polish-Russian War (film)",
+                  "score": 12.935500144958496
+                },
+                {
+                  "id": "17168188",
+                  "title": "Aleksander Ford",
+                  "score": 12.93529987335205
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "step_text": "<think> The mother of the director of the film Polish-Russian War (Film) is Aleksander Ford. </think>\n<answer> Aleksander Ford </answer>",
+              "action_type": "answer",
+              "action_text": "Aleksander Ford",
+              "aug_mask": null,
+              "final_answer_hit": false
+            }
+          ]
+        }
+      ]
+    },
+    "memgen_experience_latent_a0.25": {
+      "summary": {
+        "n": 2,
+        "final_answer_hit_rate": 0.0,
+        "avg_searches": 0.0,
+        "avg_repeated_queries": 0.0,
+        "duplicate_query_rate_per_search": 0,
+        "avg_no_hit_searches": 0.0,
+        "no_hit_search_rate_per_search": 0,
+        "avg_support_coverage": 0.0,
+        "any_support_hit_rate": 0.0,
+        "avg_first_support_hit_turn_found_only": null,
+        "avg_first_answer_hit_turn_found_only": null,
+        "all_support_hit_rate": 0.0,
+        "avg_all_support_hit_turn_found_only": null,
+        "max_turn_failure_rate": 0.0
+      },
+      "lora_compare_max_abs_diff": 0.0,
+      "rows": [
+        {
+          "dataset": "hotpotqa",
+          "id": "dev_0",
+          "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+          "golden_answers": [
+            "yes"
+          ],
+          "supporting_titles": [
+            "Scott Derrickson",
+            "Ed Wood"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "search \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" |",
+              "action_type": "other",
+              "action_text": "search \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and Ed Wood nationality\" | \"Scott Derrickson and E",
+              "aug_mask": null,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: Do Scott D'Amore and Marchant De Lange have the same nationality?\nUseful searches: S1: Scott D'Amore; S2: Marchant de Lange\nSupporting fact targets: Scott D'Amore; Marchant de Lange\nRetrieved evidence titles: Scott D'Amore; Marchant de Lange\n\nExperience 2:\nQuestion: Does Tim Reid have the same nationality as Devon Martinus?\nUseful searches: S1: Tim Reid; S2: Devon Martinus\nSupporting fact targets: Tim Reid; Devon Martinus\nRetrieved evidence titles: Tim and Tom; Tim Reid (politician; Devon Martinus; Martinus Thomsen\n\nExperience 3:\nQuestion: Are both Ed Holland and Victor Posner from the same country?\nUseful searches: S1: Ed Holland; S2: Victor Posner\nSupporting fact targets: Ed Holland; Victor Posner\nRetrieved evidence titles: Ed"
+            }
+          ]
+        },
+        {
+          "dataset": "2wikimultihopqa",
+          "id": "dev_0",
+          "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+          "golden_answers": [
+            "Małgorzata Braunek"
+          ],
+          "supporting_titles": [
+            "Polish-Russian War (film)",
+            "Xawery Żuławski"
+          ],
+          "finish_reason": "other",
+          "final_answer": "",
+          "final_answer_hit": false,
+          "searches": 0,
+          "repeated_queries": 0,
+          "no_hit_searches": 0,
+          "support_coverage": 0.0,
+          "any_support_hit": false,
+          "first_support_hit_turn": null,
+          "first_answer_hit_turn": null,
+          "all_support_hit_turn": null,
+          "trajectory": [
+            {
+              "turn": 1,
+              "step_text": "Search query: Who is the mother of the director of the film Polish-Russian War (Film)?\nAnswer: The mother of the director of the film Polish-Russian War (Film) is not mentioned in the given information.",
+              "action_type": "other",
+              "action_text": "Search query: Who is the mother of the director of the film Polish-Russian War (Film)?\nAnswer: The mother of the director of the film Polish-Russian War (Film) is not mentioned in the given information.",
+              "aug_mask": null,
+              "memory_text_preview": "Retrieval experience memory for multi-hop QA.\n\nUse these successful trajectories as policy experience: search bridge entities, cover distinct supporting facts, avoid duplicate searches, and do not answer before enough evidence is found.\n\nExperience 1:\nQuestion: What nationality is the director of film The War On Democracy?\nUseful searches: S1: The War on Democracy; S2: John Pilger\nSupporting fact targets: The War on Democracy; John Pilger\nRetrieved evidence titles: The War on Democracy; Republican liberalism; Democratic peace theory; John Pilger\n\nExperience 2:\nQuestion: American actor, Peter Hansen, best known for his role on General Hospital, also starred in The War of the Roses with American film and stage actress and director who has won how many Golden Globe Awards?\nUseful searches: S1: Peter Hansen (actor); S2: Kathleen Turner\nSupporting fact targets: Peter Hansen (actor); Kathleen Turner\nRetrieved evidence titles: Peter Hansen (actor; Kathleen Turner\n\nExperience 3:\nQuestion: What"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "memgen_prompt_latent_custom": {
+      "n": 2,
+      "final_answer_hit_rate": 0.5,
+      "avg_searches": 1.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0.0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0.0,
+      "avg_support_coverage": 0.5,
+      "any_support_hit_rate": 1.0,
+      "avg_first_support_hit_turn_found_only": 1.0,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0
+    },
+    "memgen_experience_latent_a0.25": {
+      "n": 2,
+      "final_answer_hit_rate": 0.0,
+      "avg_searches": 0.0,
+      "avg_repeated_queries": 0.0,
+      "duplicate_query_rate_per_search": 0,
+      "avg_no_hit_searches": 0.0,
+      "no_hit_search_rate_per_search": 0,
+      "avg_support_coverage": 0.0,
+      "any_support_hit_rate": 0.0,
+      "avg_first_support_hit_turn_found_only": null,
+      "avg_first_answer_hit_turn_found_only": null,
+      "all_support_hit_rate": 0.0,
+      "avg_all_support_hit_turn_found_only": null,
+      "max_turn_failure_rate": 0.0
+    }
+  }
+}

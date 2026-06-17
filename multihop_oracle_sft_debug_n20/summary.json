@@ -1,0 +1,538 @@
+{
+  "created_at": "2026-06-11 21:46:47",
+  "args": {
+    "hotpot_train": "/root/autodl-tmp/memrag_new/flashrag_data/hotpotqa/train.jsonl",
+    "twiki_train": "/root/autodl-tmp/memrag_new/flashrag_data/2wikimultihopqa/train.jsonl",
+    "output_dir": "/root/autodl-tmp/memrag_new/multihop_oracle_sft_debug_n20",
+    "train_per_dataset": 10,
+    "valid_per_dataset": 2,
+    "valid_skip": 10,
+    "max_hops": 2,
+    "topk": 5,
+    "max_doc_chars": 450,
+    "search_url": "http://127.0.0.1:8000/retrieve"
+  },
+  "train_n": 20,
+  "valid_n": 4,
+  "train_avg_support_coverage": 0.5125,
+  "valid_avg_support_coverage": 0.625,
+  "cache_size": 48,
+  "errors": [],
+  "train_stats_sample": [
+    {
+      "id": "train_0",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Arthur's Magazine",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Arthur's Lady's Home Magazine",
+            "Arthur (magazine)",
+            "Arthur's Lady's Home Magazine",
+            "Arthur (magazine)",
+            "Arthur (magazine)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "First for Women",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "First Women",
+            "Zara Nakhimovskaya",
+            "Bristol Boat Race",
+            "Timeline of women in the United States",
+            "Timeline of women in the United States"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_1",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Oberoi family",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mohan Singh Oberoi",
+            "Suresh Oberoi",
+            "The Oberoi Group",
+            "Suresh Oberoi",
+            "Vivek Oberoi"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "The Oberoi Group",
+          "hit_support_titles": [
+            "The Oberoi Group"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "The Oberoi Group",
+            "The Oberoi Group",
+            "The Oberoi Group",
+            "Mohan Singh Oberoi",
+            "Sunita Kohli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_2",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Allie Goertz",
+          "hit_support_titles": [
+            "Allie Goertz"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Allie Goertz",
+            "Allie Goertz",
+            "Raymond Goertz",
+            "Raymond Goertz",
+            "Raymond Goertz"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Milhouse Van Houten",
+          "hit_support_titles": [
+            "Milhouse Van Houten"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Little Orphan Millie",
+            "A Milhouse Divided",
+            "Pamela Hayden",
+            "Milhouse Van Houten",
+            "Pamela Hayden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_3",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Peggy Seeger",
+          "hit_support_titles": [
+            "Peggy Seeger"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Peggy Seeger",
+            "Everything Changes (Peggy Seeger album)",
+            "Peggy Seeger",
+            "Elizabeth Cotten",
+            "Alex Campbell (singer)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ewan MacColl",
+          "hit_support_titles": [
+            "Ewan MacColl"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Ewan MacColl",
+            "Jamie Foyers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_4",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Cadmium chloride",
+          "hit_support_titles": [
+            "Cadmium chloride"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Cadmium chloride",
+            "Cadmium chloride",
+            "Cadmium chloride",
+            "Cadmium telluride photovoltaics",
+            "Cadmium"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Ethanol",
+          "hit_support_titles": [
+            "Ethanol"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Microsomal ethanol oxidizing system",
+            "Corn ethanol",
+            "Ethanol fuel",
+            "Ethanol",
+            "Ethanol"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_5",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Jonathan Stark (tennis)",
+          "hit_support_titles": [
+            "Jonathan Stark (tennis)"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "Jonathan Stark (tennis)",
+            "John Yancey (tennis)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Henri Leconte",
+          "hit_support_titles": [
+            "Henri Leconte"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Henri Leconte",
+            "Henri Leconte",
+            "Henri Leconte",
+            "George Henry Horn",
+            "John LeConte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_6",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Indogrammodes",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": []
+        },
+        {
+          "turn": 2,
+          "query": "India",
+          "hit_support_titles": [
+            "India"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Air India Limited",
+            "Air India Limited",
+            "State Bank of India",
+            "NKP Salve Challenger Trophy",
+            "State Bank of India"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_7",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Global Fighting Championship",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "2018 in Fight Nights Global",
+            "2018 in Fight Nights Global",
+            "2017 in Fight Nights Global",
+            "2018 in Fight Nights Global",
+            "2017 in Fight Nights Global"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Badr Hari",
+          "hit_support_titles": [
+            "Badr Hari"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari",
+            "Badr Hari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_8",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "House of Anubis",
+          "hit_support_titles": [
+            "House of Anubis",
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "House of Anubis",
+            "Het Huis Anubis",
+            "House of Anubis",
+            "House of Anubis",
+            "Het Huis Anubis"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Het Huis Anubis",
+          "hit_support_titles": [
+            "Het Huis Anubis"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Het Huis Anubis",
+            "Het Huis Anubis",
+            "Anubis en het Pad der 7 Zonden",
+            "Nickelodeon (Dutch TV channel)",
+            "Nickelodeon (Dutch TV channel)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_9",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "2013 Liqui Moly Bathurst 12 Hour",
+          "hit_support_titles": [
+            "2013 Liqui Moly Bathurst 12 Hour"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "2013 Liqui Moly Bathurst 12 Hour",
+            "2013 Liqui Moly Bathurst 12 Hour",
+            "2015 Liqui Moly Bathurst 12 Hour",
+            "2018 Liqui Moly Bathurst 12 Hour",
+            "2016 Liqui Moly Bathurst 12 Hour"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Mount Panorama Circuit",
+          "hit_support_titles": [
+            "Mount Panorama Circuit"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Mount Panorama Circuit",
+            "Mount Panorama Circuit",
+            "Mount Panorama Circuit",
+            "Bathurst, New South Wales",
+            "Mount Panorama Circuit"
+          ]
+        }
+      ]
+    }
+  ],
+  "valid_stats_sample": [
+    {
+      "id": "train_10",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Fast Cars, Danger, Fire and Knives",
+          "hit_support_titles": [
+            "Fast Cars, Danger, Fire and Knives"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Fast Cars, Danger, Fire and Knives",
+            "Fast Cars, Danger, Fire and Knives",
+            "Fast Cars, Danger, Fire and Knives",
+            "Maculelê (dance)",
+            "Knife legislation"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "El-P",
+          "hit_support_titles": [
+            "El-P"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "El-P",
+            "El-P",
+            "El-P",
+            "El-P discography",
+            "El-P discography"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_11",
+      "dataset": "hotpotqa",
+      "support_count": 2,
+      "support_coverage": 0.5,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Gunmen from Laredo",
+          "hit_support_titles": [],
+          "hit_answer": false,
+          "top_titles": [
+            "Laredo, Texas",
+            "2012 Nuevo Laredo massacres",
+            "Miguel \"\"El Gringo\"\" Villarreal",
+            "Dolores Guadalupe García Escamilla",
+            "Hermanos de Pistoleros Latinos"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Walter Coy",
+          "hit_support_titles": [
+            "Walter Coy"
+          ],
+          "hit_answer": true,
+          "top_titles": [
+            "Walter Coy",
+            "Walter Coy",
+            "Ted Coy",
+            "Walter Henry Hannam",
+            "Ted Coy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_10",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 0.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Wabash High School",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Wabash College",
+            "Ralph Jones",
+            "Mount Carmel High School (Mount Carmel, Illinois)",
+            "West Wabash Historic District",
+            "Mount Carmel High School (Mount Carmel, Illinois)"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Matraville Sports High School",
+          "hit_support_titles": [],
+          "hit_answer": true,
+          "top_titles": [
+            "Matraville, New South Wales",
+            "Matraville, New South Wales",
+            "Glen Ella",
+            "Glen Ella",
+            "Miracle Fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_11",
+      "dataset": "2wikimultihopqa",
+      "support_count": 2,
+      "support_coverage": 1.0,
+      "events": [
+        {
+          "turn": 1,
+          "query": "Diane Gilliam Fisher",
+          "hit_support_titles": [
+            "Diane Gilliam Fisher"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Diane Gilliam Fisher",
+            "Diane Gilliam Fisher",
+            "Kettle Bottom",
+            "Diane Gilliam Fisher",
+            "Kettle Bottom"
+          ]
+        },
+        {
+          "turn": 2,
+          "query": "Alison Skipper",
+          "hit_support_titles": [
+            "Alison Skipper"
+          ],
+          "hit_answer": false,
+          "top_titles": [
+            "Alison Skipper",
+            "Alison Skipper",
+            "Alison Skipper",
+            "The Master of Ballantrae (1984 film)",
+            "Alison Skipper"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2996 @@
+{
+  "created_at": "2026-06-11 18:34:48",
+  "dataset": "RUC-NLPIR/FlashRAG_datasets/nq",
+  "retriever": "Search-R1 BM25 over official PeterJinGo/wiki-18 corpus",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "num_test": 50,
+  "topk": 5,
+  "experience_source": "official NQ train examples whose raw question retrieval hit a golden answer",
+  "experiences": [
+    {
+      "index": 1,
+      "question": "big little lies season 2 how many episodes?",
+      "query": "big little lies season 2 how many episodes?",
+      "golden_answers": [
+        "seven"
+      ],
+      "hit_rank": 2,
+      "hit_doc_id": "5237922",
+      "hit_title": "Big Little Lies (TV series)",
+      "hit_snippet": "shows of 2017. A soundtrack for the series was released on Google Play and iTunes on March 31, 2017. The first season was released on Blu-ray and DVD on August 1, 2017. Big Little Lies (TV series) Big Little Lies is an A"
+    },
+    {
+      "index": 2,
+      "question": "who sang waiting for a girl like you?",
+      "query": "who sang waiting for a girl like you?",
+      "golden_answers": [
+        "Foreigner"
+      ],
+      "hit_rank": 1,
+      "hit_doc_id": "14423432",
+      "hit_title": "Waiting for a Girl Like You",
+      "hit_snippet": "Waiting for a Girl Like You \"\"Waiting for a Girl Like You\"\" is a 1981 power ballad by the British-American rock band Foreigner. The distinctive synthesizer theme was performed by the then-little-known Thomas Dolby, and t"
+    },
+    {
+      "index": 3,
+      "question": "where do you cross the arctic circle in norway?",
+      "query": "where do you cross the arctic circle in norway?",
+      "golden_answers": [
+        "Saltfjellet"
+      ],
+      "hit_rank": 1,
+      "hit_doc_id": "4686223",
+      "hit_title": "Arctic Norway",
+      "hit_snippet": "Arctic Norway Arctic Norway () comprises the northernmost parts of Norway that lie above the Arctic circle. Norway, being one of the most stretched-out countries in the world, reaches from approximately 58°N to 81°N, so "
+    }
+  ],
+  "summary": {
+    "raw_question": {
+      "n": 50,
+      "hit_at_k": 14,
+      "hit_rate": 0.28,
+      "mrr_at_k": 0.21333333333333332
+    },
+    "base_no_experience": {
+      "n": 50,
+      "hit_at_k": 22,
+      "hit_rate": 0.44,
+      "mrr_at_k": 0.3440000000000001
+    },
+    "base_text_experience": {
+      "n": 50,
+      "hit_at_k": 16,
+      "hit_rate": 0.32,
+      "mrr_at_k": 0.285
+    },
+    "memgen_latent_experience": {
+      "n": 50,
+      "hit_at_k": 3,
+      "hit_rate": 0.06,
+      "mrr_at_k": 0.025
+    }
+  },
+  "rows": [
+    {
+      "index": 0,
+      "question": "who got the first nobel prize in physics?",
+      "golden_answers": [
+        "Wilhelm Conrad Röntgen"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who got the first nobel prize in physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.331100463867188,
+          "top1_doc_id": "16315118",
+          "top1_title": "Nobel Prize in Physics"
+        },
+        "base_no_experience": {
+          "query": "Who won the Nobel Prize in Physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.45240020751953,
+          "top1_doc_id": "4005905",
+          "top1_title": "First Step to Nobel Prize in Physics"
+        },
+        "base_text_experience": {
+          "query": "who got the first nobel prize in physics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.331100463867188,
+          "top1_doc_id": "16315118",
+          "top1_title": "Nobel Prize in Physics"
+        },
+        "memgen_latent_experience": {
+          "query": "如图所示的图所示的图所示的图所示的图所示的图所示的图所示的图所示",
+          "hit": false,
+          "rank": null,
+          "top1_score": 102.58580017089844,
+          "top1_doc_id": "16164067",
+          "top1_title": "Sufan movement",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 1,
+      "question": "when is the next deadpool movie being released?",
+      "golden_answers": [
+        "May 18, 2018"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the next deadpool movie being released?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.552399635314941,
+          "top1_doc_id": "15847468",
+          "top1_title": "Deadpool (film)"
+        },
+        "base_no_experience": {
+          "query": "What's the release date of Deadpool's next movie?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.552399635314941,
+          "top1_doc_id": "15847468",
+          "top1_title": "Deadpool (film)"
+        },
+        "base_text_experience": {
+          "query": "deadpool movies release date",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.101799964904785,
+          "top1_doc_id": "3335782",
+          "top1_title": "X-Force"
+        },
+        "memgen_latent_experience": {
+          "query": "如皋市,、",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.653800010681152,
+          "top1_doc_id": "4633294",
+          "top1_title": "Battle of Rugao",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 2,
+      "question": "which mode is used for short wave broadcast service?",
+      "golden_answers": [
+        "Olivia",
+        "MFSK"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "which mode is used for short wave broadcast service?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.251500129699707,
+          "top1_doc_id": "15046172",
+          "top1_title": "Sender Zehlendorf"
+        },
+        "base_no_experience": {
+          "query": "What is the broadcasting mode of shortwave services?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.819000244140625,
+          "top1_doc_id": "5894743",
+          "top1_title": "Radio Australia"
+        },
+        "base_text_experience": {
+          "query": "Which mode is used for shortwave broadcast service?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.800800323486328,
+          "top1_doc_id": "5894743",
+          "top1_title": "Radio Australia"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 3,
+      "question": "the south west wind blows across nigeria between?",
+      "golden_answers": [
+        "till September"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "the south west wind blows across nigeria between?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.746399879455566,
+          "top1_doc_id": "4122243",
+          "top1_title": "South Equatorial Current"
+        },
+        "base_no_experience": {
+          "query": "What is the weather pattern in Nigeria during the South West Wind season?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.74250030517578,
+          "top1_doc_id": "2666597",
+          "top1_title": "Esperanza, Masbate"
+        },
+        "base_text_experience": {
+          "query": "where do you cross the arctic circle in norway?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.415800094604492,
+          "top1_doc_id": "4686223",
+          "top1_title": "Arctic Norway"
+        },
+        "memgen_latent_experience": {
+          "query": "一定有误",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.005399703979492,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 4,
+      "question": "what does hp mean in war and order?",
+      "golden_answers": [
+        "hit points or health points"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what does hp mean in war and order?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.624099731445312,
+          "top1_doc_id": "11684098",
+          "top1_title": "Handley Page"
+        },
+        "base_no_experience": {
+          "query": "What is the meaning of \"HP\" in War and Peace?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.654399871826172,
+          "top1_doc_id": "17117651",
+          "top1_title": "Ministries of Nineteen Eighty-Four"
+        },
+        "base_text_experience": {
+          "query": "What does HP stand for in War and Peace?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.95359992980957,
+          "top1_doc_id": "17117651",
+          "top1_title": "Ministries of Nineteen Eighty-Four"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 5,
+      "question": "who wrote the first declaration of human rights?",
+      "golden_answers": [
+        "Cyrus"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who wrote the first declaration of human rights?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.960100173950195,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "base_no_experience": {
+          "query": "Who wrote the Declaration of Human Rights?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.093899726867676,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "base_text_experience": {
+          "query": "Who wrote the first Declaration of Human Rights?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.960100173950195,
+          "top1_doc_id": "17389717",
+          "top1_title": "Canadian Tribute to Human Rights"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 6,
+      "question": "who is the owner of reading football club?",
+      "golden_answers": [
+        "Xiu Li Dai",
+        "Dai Xiuli",
+        "Dai Yongge",
+        "Yongge Dai"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is the owner of reading football club?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.12660026550293,
+          "top1_doc_id": "10016017",
+          "top1_title": "Thames Valley Royals proposal"
+        },
+        "base_no_experience": {
+          "query": "Who owns Reading Football Club?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 10.334699630737305,
+          "top1_doc_id": "13506636",
+          "top1_title": "Reading F.C."
+        },
+        "base_text_experience": {
+          "query": "who owns reading football club",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 10.334699630737305,
+          "top1_doc_id": "13506636",
+          "top1_title": "Reading F.C."
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 7,
+      "question": "when is the next scandal episode coming out?",
+      "golden_answers": [
+        "February 1, 2018"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the next scandal episode coming out?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.113200187683105,
+          "top1_doc_id": "3749431",
+          "top1_title": "Everything's Coming Up Mellie"
+        },
+        "base_no_experience": {
+          "query": "What's the next episode of the upcoming scandal series?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.78279972076416,
+          "top1_doc_id": "9049619",
+          "top1_title": "The Aquabats! Super Show!"
+        },
+        "base_text_experience": {
+          "query": "next scandal episode coming out",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.690400123596191,
+          "top1_doc_id": "3749431",
+          "top1_title": "Everything's Coming Up Mellie"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 8,
+      "question": "when is the last time the philadelphia won the superbowl?",
+      "golden_answers": [
+        "Super Bowl LII,",
+        "2017"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the last time the philadelphia won the superbowl?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.040499687194824,
+          "top1_doc_id": "16088401",
+          "top1_title": "The One After the Superbowl"
+        },
+        "base_no_experience": {
+          "query": "What was the last time the Philadelphia Eagles won the Super Bowl?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 20.21269989013672,
+          "top1_doc_id": "18498882",
+          "top1_title": "2017 Philadelphia Eagles season"
+        },
+        "base_text_experience": {
+          "query": "Philadelphians last won the Super Bowl in which year?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.968000411987305,
+          "top1_doc_id": "3329435",
+          "top1_title": "Bart King"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 9,
+      "question": "who was the first lady nominated member of the rajya sabha?",
+      "golden_answers": [
+        "Mary Kom"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who was the first lady nominated member of the rajya sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.209800720214844,
+          "top1_doc_id": "13315934",
+          "top1_title": "1952 Indian Rajya Sabha elections"
+        },
+        "base_no_experience": {
+          "query": "Who was the first woman nominee member of the Rajya Sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.951900482177734,
+          "top1_doc_id": "16087971",
+          "top1_title": "Parliament of India"
+        },
+        "base_text_experience": {
+          "query": "who was the first lady nominated member of the rajya sabha?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.209800720214844,
+          "top1_doc_id": "13315934",
+          "top1_title": "1952 Indian Rajya Sabha elections"
+        },
+        "memgen_latent_experience": {
+          "query": "如皋市，江苏如皋市，江苏如皋市",
+          "hit": false,
+          "rank": null,
+          "top1_score": 45.737998962402344,
+          "top1_doc_id": "697619",
+          "top1_title": "Xuzhou No.1 Middle School",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 10,
+      "question": "what is the most current adobe flash player version?",
+      "golden_answers": [
+        "28.0.0.137"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the most current adobe flash player version?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.80470085144043,
+          "top1_doc_id": "16616524",
+          "top1_title": "Adobe Flash Player"
+        },
+        "base_no_experience": {
+          "query": "What is the latest version of Adobe Flash Player available?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 23.705299377441406,
+          "top1_doc_id": "11372017",
+          "top1_title": "Adobe Flash"
+        },
+        "base_text_experience": {
+          "query": "What is the most recent version of Adobe Flash Player?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.368900299072266,
+          "top1_doc_id": "14927946",
+          "top1_title": "SWF"
+        },
+        "memgen_latent_experience": {
+          "query": "МИA",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 11,
+      "question": "swan lake the sleeping beauty and the nutcracker are three famous ballets by?",
+      "golden_answers": [
+        "Pyotr Ilyich Tchaikovsky"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "swan lake the sleeping beauty and the nutcracker are three famous ballets by?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 29.882699966430664,
+          "top1_doc_id": "3194598",
+          "top1_title": "Antal Doráti"
+        },
+        "base_no_experience": {
+          "query": "Ballets by Swan Lake, The Sleeping Beauty, and The Nutcracker are three famous ballets.",
+          "hit": false,
+          "rank": null,
+          "top1_score": 34.38290023803711,
+          "top1_doc_id": "3194598",
+          "top1_title": "Antal Doráti"
+        },
+        "base_text_experience": {
+          "query": "Swan Lake the Sleeping Beauty and The Nutcracker are two famous ballets by?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 29.587299346923828,
+          "top1_doc_id": "3194598",
+          "top1_title": "Antal Doráti"
+        },
+        "memgen_latent_experience": {
+          "query": "stands for \"standing",
+          "hit": false,
+          "rank": null,
+          "top1_score": 7.768700122833252,
+          "top1_doc_id": "2106074",
+          "top1_title": "Standing frame",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 12,
+      "question": "how many episodes are there in dragon ball z?",
+      "golden_answers": [
+        "291 episodes",
+        "291"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "how many episodes are there in dragon ball z?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.864200592041016,
+          "top1_doc_id": "12835691",
+          "top1_title": "Dragon Ball Z"
+        },
+        "base_no_experience": {
+          "query": "What is the number of episodes in Dragon Ball Z?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.438199996948242,
+          "top1_doc_id": "10302706",
+          "top1_title": "Dragon Ball Z: Bardock – The Father of Goku"
+        },
+        "base_text_experience": {
+          "query": "Dragon Ball Z episode count",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 18.726999282836914,
+          "top1_doc_id": "11851598",
+          "top1_title": "Dragon Ball"
+        },
+        "memgen_latent_experience": {
+          "query": "如如如如如如如如如如如如如如如如如如如如如如如如",
+          "hit": false,
+          "rank": null,
+          "top1_score": 237.0186004638672,
+          "top1_doc_id": "18824711",
+          "top1_title": "Fūrinkazan",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 13,
+      "question": "cast of law & order special victim unit?",
+      "golden_answers": [
+        "Kelli Giddish",
+        "Richard Belzer",
+        "Stephanie March",
+        "Diane Neal",
+        "Ice-T",
+        "Danny Pino",
+        "Dann Florek",
+        "Tamara Tunie",
+        "Michaela McManus",
+        "Mariska Hargitay",
+        "Adam Beach",
+        "B. D. Wong",
+        "Christopher Meloni",
+        "Raúl Esparza",
+        "Michelle Hurd",
+        "Peter Scanavino"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "cast of law & order special victim unit?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 16.29450035095215,
+          "top1_doc_id": "6921215",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "base_no_experience": {
+          "query": "What is the cast of Law & Order Special Victims Unit?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 16.29450035095215,
+          "top1_doc_id": "6921215",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "base_text_experience": {
+          "query": "What is the cast of Law & Order Special Victims Unit?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 16.29450035095215,
+          "top1_doc_id": "6921215",
+          "top1_title": "Law & Order: Special Victims Unit"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 14,
+      "question": "who designed the garden city of new earswick?",
+      "golden_answers": [
+        "planner Raymond Unwin",
+        "architect Barry Parker",
+        "Raymond Unwin"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who designed the garden city of new earswick?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.941600799560547,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "base_no_experience": {
+          "query": "What was the designer of New Earswick's Garden City?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.941600799560547,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "base_text_experience": {
+          "query": "garden city of new earswick was designed by architects such as John McAlpine and Peter Walker.",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 20.583499908447266,
+          "top1_doc_id": "14082754",
+          "top1_title": "New Earswick"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 15,
+      "question": "what is the first step in the evolution of the eye?",
+      "golden_answers": [
+        "photoreceptor proteins that sense light",
+        "eyespots"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the first step in the evolution of the eye?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.151399612426758,
+          "top1_doc_id": "15384557",
+          "top1_title": "Evolution of the eye"
+        },
+        "base_no_experience": {
+          "query": "What is the initial stage of vision development?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.76990032196045,
+          "top1_doc_id": "4847701",
+          "top1_title": "West Kowloon Cultural District"
+        },
+        "base_text_experience": {
+          "query": "What is the first step in the evolution of the eye?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.151399612426758,
+          "top1_doc_id": "15384557",
+          "top1_title": "Evolution of the eye"
+        },
+        "memgen_latent_experience": {
+          "query": "МИA",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 16,
+      "question": "where is the tv show the curse of oak island filmed?",
+      "golden_answers": [
+        "Oak Island"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where is the tv show the curse of oak island filmed?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.235200881958008,
+          "top1_doc_id": "2209195",
+          "top1_title": "The Curse of Oak Island"
+        },
+        "base_no_experience": {
+          "query": "TV Show - The Curse of Oak Island Filmed in Where?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.235200881958008,
+          "top1_doc_id": "2209195",
+          "top1_title": "The Curse of Oak Island"
+        },
+        "base_text_experience": {
+          "query": "tv show the curse of oak island filmed in which country?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.950199127197266,
+          "top1_doc_id": "2209195",
+          "top1_title": "The Curse of Oak Island"
+        },
+        "memgen_latent_experience": {
+          "query": "МИA",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 17,
+      "question": "where is gall bladder situated in human body?",
+      "golden_answers": [
+        "beneath the liver"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where is gall bladder situated in human body?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.609399795532227,
+          "top1_doc_id": "16920797",
+          "top1_title": "3D Indiana"
+        },
+        "base_no_experience": {
+          "query": "What is the location of the gallbladder in the human body?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.795499801635742,
+          "top1_doc_id": "10530120",
+          "top1_title": "Accessory bile duct"
+        },
+        "base_text_experience": {
+          "query": "where is gall bladder situated in human body?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.609399795532227,
+          "top1_doc_id": "16920797",
+          "top1_title": "3D Indiana"
+        },
+        "memgen_latent_experience": {
+          "query": "如图所示的图所示的图所示的图所示的图所示的图所示的图所示的图所示",
+          "hit": false,
+          "rank": null,
+          "top1_score": 102.58580017089844,
+          "top1_doc_id": "16164067",
+          "top1_title": "Sufan movement",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 18,
+      "question": "who is the current director of the us mint?",
+      "golden_answers": [
+        "David J. Ryder",
+        "David Motl"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is the current director of the us mint?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.545900344848633,
+          "top1_doc_id": "1413420",
+          "top1_title": "Mexican Mint"
+        },
+        "base_no_experience": {
+          "query": "Who is the current director of the US Mint?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.545900344848633,
+          "top1_doc_id": "1413420",
+          "top1_title": "Mexican Mint"
+        },
+        "base_text_experience": {
+          "query": "current director of the us mint?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.545900344848633,
+          "top1_doc_id": "1413420",
+          "top1_title": "Mexican Mint"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的文章，以及美国的货币。",
+          "hit": false,
+          "rank": null,
+          "top1_score": 39.06800079345703,
+          "top1_doc_id": "9016373",
+          "top1_title": "Bertha Sneck",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 19,
+      "question": "who was named african footballer of the year 2014?",
+      "golden_answers": [
+        "Yaya Touré"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who was named african footballer of the year 2014?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.465800285339355,
+          "top1_doc_id": "8414677",
+          "top1_title": "Noko Matlou"
+        },
+        "base_no_experience": {
+          "query": "Who was African Footballer of the Year in 2014?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.237199783325195,
+          "top1_doc_id": "8414677",
+          "top1_title": "Noko Matlou"
+        },
+        "base_text_experience": {
+          "query": "African Footballer of the Year 2014?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 9.28279972076416,
+          "top1_doc_id": "8414677",
+          "top1_title": "Noko Matlou"
+        },
+        "memgen_latent_experience": {
+          "query": "}><br>Experience 1:",
+          "hit": false,
+          "rank": null,
+          "top1_score": 9.5068998336792,
+          "top1_doc_id": "11352754",
+          "top1_title": "Crisis (Fleetway)",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 20,
+      "question": "what is the main mineral in lithium batteries?",
+      "golden_answers": [
+        "Lithium",
+        "lithium"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the main mineral in lithium batteries?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 15.248800277709961,
+          "top1_doc_id": "13301098",
+          "top1_title": "Portugal"
+        },
+        "base_no_experience": {
+          "query": "What is the main mineral used in lithium-ion batteries?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 19.805099487304688,
+          "top1_doc_id": "16256120",
+          "top1_title": "Lithium-ion battery"
+        },
+        "base_text_experience": {
+          "query": "What is the main mineral in lithium batteries?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 15.248800277709961,
+          "top1_doc_id": "13301098",
+          "top1_title": "Portugal"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 21,
+      "question": "right to property according to the constitution of india is a?",
+      "golden_answers": [
+        "constitutional right"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "right to property according to the constitution of india is a?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.593899726867676,
+          "top1_doc_id": "5330477",
+          "top1_title": "Doctrine of Basic Structure"
+        },
+        "base_no_experience": {
+          "query": "right to property in India according to the constitution",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.593899726867676,
+          "top1_doc_id": "5330477",
+          "top1_title": "Doctrine of Basic Structure"
+        },
+        "base_text_experience": {
+          "query": "right to property according to the constitution of india is a?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.593899726867676,
+          "top1_doc_id": "5330477",
+          "top1_title": "Doctrine of Basic Structure"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlalalalala",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 22,
+      "question": "who is the president of usa right now?",
+      "golden_answers": [
+        "Donald Trump"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is the president of usa right now?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.603099822998047,
+          "top1_doc_id": "12805578",
+          "top1_title": "Miss USA 2009 same-sex marriage controversy"
+        },
+        "base_no_experience": {
+          "query": "Who is the current President of the United States?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 9.559100151062012,
+          "top1_doc_id": "1131436",
+          "top1_title": "Living presidents of the United States"
+        },
+        "base_text_experience": {
+          "query": "President of USA right now: Donald Trump",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 14.97760009765625,
+          "top1_doc_id": "15237667",
+          "top1_title": "Revolutionary Communist Party, USA"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 23,
+      "question": "what part of the brain is in the middle cranial fossa?",
+      "golden_answers": [
+        "pituitary gland",
+        "the temporal lobes",
+        "the pituitary gland",
+        "temporal lobes"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what part of the brain is in the middle cranial fossa?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 21.828399658203125,
+          "top1_doc_id": "10609413",
+          "top1_title": "Anterior cranial fossa"
+        },
+        "base_no_experience": {
+          "query": "What part of the brain is located in the middle cranial fossa?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 22.012300491333008,
+          "top1_doc_id": "7591842",
+          "top1_title": "Posterior cranial fossa"
+        },
+        "base_text_experience": {
+          "query": "What part of the brain is in the middle cranial fossa?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 21.828399658203125,
+          "top1_doc_id": "10609413",
+          "top1_title": "Anterior cranial fossa"
+        },
+        "memgen_latent_experience": {
+          "query": "МИnnerland",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 24,
+      "question": "where do the greasers live in the outsiders?",
+      "golden_answers": [
+        "Tulsa, Oklahoma"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where do the greasers live in the outsiders?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.166299819946289,
+          "top1_doc_id": "7751603",
+          "top1_title": "Greaser (subculture)"
+        },
+        "base_no_experience": {
+          "query": "What is the location of the Greasers in the Outsiders series?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 11.777099609375,
+          "top1_doc_id": "12240142",
+          "top1_title": "Greaser (derogatory)"
+        },
+        "base_text_experience": {
+          "query": "where do the greasers live in the outsiders?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.166299819946289,
+          "top1_doc_id": "7751603",
+          "top1_title": "Greaser (subculture)"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 25,
+      "question": "who died in the plane crash greys anatomy?",
+      "golden_answers": [
+        "Dr. Lexie Grey",
+        "Lexie"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who died in the plane crash greys anatomy?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.155399322509766,
+          "top1_doc_id": "13071082",
+          "top1_title": "Grey's Anatomy (season 9)"
+        },
+        "base_no_experience": {
+          "query": "Who died in the plane crash mentioned in \"Greys Anatomy\"?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.155399322509766,
+          "top1_doc_id": "13071082",
+          "top1_title": "Grey's Anatomy (season 9)"
+        },
+        "base_text_experience": {
+          "query": "Who died in the plane crash Grey's Anatomy?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 17.155399322509766,
+          "top1_doc_id": "13071082",
+          "top1_title": "Grey's Anatomy (season 9)"
+        },
+        "memgen_latent_experience": {
+          "query": "如图所示，以下是最佳答案。",
+          "hit": false,
+          "rank": null,
+          "top1_score": 28.50480079650879,
+          "top1_doc_id": "5941370",
+          "top1_title": "Hịch tướng sĩ",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 26,
+      "question": "where do they grow hops in the us?",
+      "golden_answers": [
+        "Yakima (Washington)",
+        "Idaho",
+        "Washington",
+        "western Canyon County, Idaho",
+        "Willamette (Oregon)",
+        "Oregon"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where do they grow hops in the us?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.733599662780762,
+          "top1_doc_id": "6694447",
+          "top1_title": "Beer in England"
+        },
+        "base_no_experience": {
+          "query": "What types of hops are grown in the United States?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 13.020099639892578,
+          "top1_doc_id": "5693675",
+          "top1_title": "Islam and hip hop in the United States"
+        },
+        "base_text_experience": {
+          "query": "where do they grow hops in the us?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.733599662780762,
+          "top1_doc_id": "6694447",
+          "top1_title": "Beer in England"
+        },
+        "memgen_latent_experience": {
+          "query": "如山之大如山之小",
+          "hit": false,
+          "rank": null,
+          "top1_score": 37.31480026245117,
+          "top1_doc_id": "17465746",
+          "top1_title": "Zhi (excrescences)",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 27,
+      "question": "what's the dog's name on tom and jerry?",
+      "golden_answers": [
+        "Spike"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what's the dog's name on tom and jerry?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 14.409299850463867,
+          "top1_doc_id": "18719157",
+          "top1_title": "Puttin' on the Dog"
+        },
+        "base_no_experience": {
+          "query": "What is the dog's name in Tom and Jerry?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 14.409299850463867,
+          "top1_doc_id": "18719157",
+          "top1_title": "Puttin' on the Dog"
+        },
+        "base_text_experience": {
+          "query": "What's the dog's name on Tom and Jerry?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 14.409299850463867,
+          "top1_doc_id": "18719157",
+          "top1_title": "Puttin' on the Dog"
+        },
+        "memgen_latent_experience": {
+          "query": "МИA experience 1",
+          "hit": false,
+          "rank": null,
+          "top1_score": 5.798500061035156,
+          "top1_doc_id": "9927833",
+          "top1_title": "No. 1 Air Experience Flight RAF",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 28,
+      "question": "in which regions are most of africa petroleum and natural gas found?",
+      "golden_answers": [
+        "Nigeria"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "in which regions are most of africa petroleum and natural gas found?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.907400131225586,
+          "top1_doc_id": "11192289",
+          "top1_title": "Chesapeake Energy"
+        },
+        "base_no_experience": {
+          "query": "What are the regions where most of Africa's petroleum and natural gas are found?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.201000213623047,
+          "top1_doc_id": "7118461",
+          "top1_title": "Economy of the Western Cape"
+        },
+        "base_text_experience": {
+          "query": "where do you cross the arctic circle in norway?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.415800094604492,
+          "top1_doc_id": "4686223",
+          "top1_title": "Arctic Norway"
+        },
+        "memgen_latent_experience": {
+          "query": "如皋市,準地, the oil and gas industry is concentrated in the oil and gas fields of the Middle East",
+          "hit": false,
+          "rank": null,
+          "top1_score": 24.847700119018555,
+          "top1_doc_id": "14423901",
+          "top1_title": "Energy policy of Kazakhstan",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 29,
+      "question": "in which sea pearl is found in india?",
+      "golden_answers": [
+        "the Indian Ocean"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "in which sea pearl is found in india?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.218099594116211,
+          "top1_doc_id": "10662858",
+          "top1_title": "Thoothukudi district"
+        },
+        "base_no_experience": {
+          "query": "Where does the pearl from India exist?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.031100273132324,
+          "top1_doc_id": "11477602",
+          "top1_title": "Pearl City Worship"
+        },
+        "base_text_experience": {
+          "query": "where does pearl go in india?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.209199905395508,
+          "top1_doc_id": "7973000",
+          "top1_title": "Whipsaw (film)"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的证据",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.66119956970215,
+          "top1_doc_id": "14783493",
+          "top1_title": "Hua Chenyu",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 30,
+      "question": "panda is a national animal of which country?",
+      "golden_answers": [
+        "China"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "panda is a national animal of which country?",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 11.712599754333496,
+          "top1_doc_id": "15940971",
+          "top1_title": "Red panda"
+        },
+        "base_no_experience": {
+          "query": "What is the national animal of China?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 8.75730037689209,
+          "top1_doc_id": "11494845",
+          "top1_title": "Asiatisch"
+        },
+        "base_text_experience": {
+          "query": "Panda is a national animal of China.",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 14.110899925231934,
+          "top1_doc_id": "9944524",
+          "top1_title": "Kung Fu Panda"
+        },
+        "memgen_latent_experience": {
+          "query": "一定有熊猫，熊猫是国家，熊猫是国家，熊猫是国家，熊猫是国家，熊猫是国家，",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 102.45500183105469,
+          "top1_doc_id": "3169705",
+          "top1_title": "Huang Jianxiang",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 31,
+      "question": "how many countries are a part of opec?",
+      "golden_answers": [
+        "14"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "how many countries are a part of opec?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.55739974975586,
+          "top1_doc_id": "2347698",
+          "top1_title": "History of the Venezuelan oil industry"
+        },
+        "base_no_experience": {
+          "query": "What is the number of member states in OPEC?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.72819995880127,
+          "top1_doc_id": "12229845",
+          "top1_title": "OPEC Fund for International Development"
+        },
+        "base_text_experience": {
+          "query": "where do you cross the arctic circle in norway?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 17.415800094604492,
+          "top1_doc_id": "4686223",
+          "top1_title": "Arctic Norway"
+        },
+        "memgen_latent_experience": {
+          "query": "如图所示的图所示的图所示的图所示的图所示的图所示的图所示的图所示",
+          "hit": false,
+          "rank": null,
+          "top1_score": 102.58580017089844,
+          "top1_doc_id": "16164067",
+          "top1_title": "Sufan movement",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 32,
+      "question": "what type of car is a jeep considered?",
+      "golden_answers": [
+        "off-road vehicles",
+        "light utility vehicles",
+        "sport utility vehicles"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what type of car is a jeep considered?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.293000221252441,
+          "top1_doc_id": "4801909",
+          "top1_title": "Willys MB"
+        },
+        "base_no_experience": {
+          "query": "What type of car is a Jeep considered?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.293000221252441,
+          "top1_doc_id": "4801909",
+          "top1_title": "Willys MB"
+        },
+        "base_text_experience": {
+          "query": "What types of cars are considered Jeep?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.293000221252441,
+          "top1_doc_id": "4801909",
+          "top1_title": "Willys MB"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 33,
+      "question": "who did deion sanders go in the hall of fame as?",
+      "golden_answers": [
+        "Cornerback"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who did deion sanders go in the hall of fame as?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 20.033100128173828,
+          "top1_doc_id": "8767162",
+          "top1_title": "Super Bowl"
+        },
+        "base_no_experience": {
+          "query": "Who is Deion Sanders in the Hall of Fame?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 18.3302001953125,
+          "top1_doc_id": "8767162",
+          "top1_title": "Super Bowl"
+        },
+        "base_text_experience": {
+          "query": "who did deion sanders go in the hall of fame as?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 20.033100128173828,
+          "top1_doc_id": "8767162",
+          "top1_title": "Super Bowl"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly Sanders",
+          "hit": false,
+          "rank": null,
+          "top1_score": 6.6346001625061035,
+          "top1_doc_id": "13156578",
+          "top1_title": "Belt sander",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 34,
+      "question": "what is the name of manchester united stadium?",
+      "golden_answers": [
+        "Old Trafford"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the name of manchester united stadium?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 11.025400161743164,
+          "top1_doc_id": "7033924",
+          "top1_title": "Manchester 62 F.C."
+        },
+        "base_no_experience": {
+          "query": "What is the name of Manchester United Stadium?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 11.025400161743164,
+          "top1_doc_id": "7033924",
+          "top1_title": "Manchester 62 F.C."
+        },
+        "base_text_experience": {
+          "query": "Manchester United Stadium",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 10.126899719238281,
+          "top1_doc_id": "4916544",
+          "top1_title": "Salford Quays"
+        },
+        "memgen_latent_experience": {
+          "query": "一定",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.91569995880127,
+          "top1_doc_id": "8679490",
+          "top1_title": "Mu Ying",
+          "augmentation_mask": [
+            [
+              1,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 35,
+      "question": "who played the mother in the black stallion?",
+      "golden_answers": [
+        "Teri Garr"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who played the mother in the black stallion?",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 12.170599937438965,
+          "top1_doc_id": "10705385",
+          "top1_title": "Black Stallion (film)"
+        },
+        "base_no_experience": {
+          "query": "Who played the mother in \"The Black Stallion\"?",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 12.170599937438965,
+          "top1_doc_id": "10705385",
+          "top1_title": "Black Stallion (film)"
+        },
+        "base_text_experience": {
+          "query": "who played the mother in the black stallion",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 12.170599937438965,
+          "top1_doc_id": "10705385",
+          "top1_title": "Black Stallion (film)"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的视频，大结局是什么？",
+          "hit": false,
+          "rank": null,
+          "top1_score": 32.172698974609375,
+          "top1_doc_id": "13738211",
+          "top1_title": "Shen Haobo",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 36,
+      "question": "who sings the theme song for the proud family?",
+      "golden_answers": [
+        "Destiny's Child",
+        "Solange Knowles"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who sings the theme song for the proud family?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.73490047454834,
+          "top1_doc_id": "2969480",
+          "top1_title": "Jack Johnson (album)"
+        },
+        "base_no_experience": {
+          "query": "Who sings the theme song for \"The Proud Family\"?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.73490047454834,
+          "top1_doc_id": "2969480",
+          "top1_title": "Jack Johnson (album)"
+        },
+        "base_text_experience": {
+          "query": "who sings waiting for a girl like you?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.017900466918945,
+          "top1_doc_id": "2914493",
+          "top1_title": "One Word (Elliott Yamin song)"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的证据标题为：Waiting for a Girl Like You",
+          "hit": false,
+          "rank": null,
+          "top1_score": 27.264799118041992,
+          "top1_doc_id": "6491917",
+          "top1_title": "Pukkuksong-1",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 37,
+      "question": "who wrote cant get you out of my head lyrics?",
+      "golden_answers": [
+        "Cathy Dennis and Rob Davis",
+        "Rob Davis",
+        "Cathy Dennis"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who wrote cant get you out of my head lyrics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.919400215148926,
+          "top1_doc_id": "9265053",
+          "top1_title": "Can't Get You Out of My Head"
+        },
+        "base_no_experience": {
+          "query": "What is the name of the song \"Cant Get You Out of My Head\" by The Beatles?",
+          "hit": true,
+          "rank": 5,
+          "top1_score": 18.061899185180664,
+          "top1_doc_id": "2971381",
+          "top1_title": "You Know My Name (Look Up the Number)"
+        },
+        "base_text_experience": {
+          "query": "who wrote cant get you out of my head lyrics?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 15.919400215148926,
+          "top1_doc_id": "9265053",
+          "top1_title": "Can't Get You Out of My Head"
+        },
+        "memgen_latent_experience": {
+          "query": "МИrks' lyrics",
+          "hit": false,
+          "rank": null,
+          "top1_score": 4.763899803161621,
+          "top1_doc_id": "7695702",
+          "top1_title": "Jim Miller (musician)",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 38,
+      "question": "who is rose in the fall season 2?",
+      "golden_answers": [
+        "Valene Kane"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who is rose in the fall season 2?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.058500289916992,
+          "top1_doc_id": "17319662",
+          "top1_title": "History of the Arizona Cardinals"
+        },
+        "base_no_experience": {
+          "query": "Who is Rose in the Fall Season 2?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.058500289916992,
+          "top1_doc_id": "17319662",
+          "top1_title": "History of the Arizona Cardinals"
+        },
+        "base_text_experience": {
+          "query": "who is rose in the fall season 2?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.058500289916992,
+          "top1_doc_id": "17319662",
+          "top1_title": "History of the Arizona Cardinals"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly in the autumn season 2?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 8.221699714660645,
+          "top1_doc_id": "15403341",
+          "top1_title": "2015 BRDC Formula 4 Autumn Trophy",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 39,
+      "question": "where does the story the great gatsby take place?",
+      "golden_answers": [
+        "Long Island of 1922"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "where does the story the great gatsby take place?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.782999992370605,
+          "top1_doc_id": "17350586",
+          "top1_title": "The Great Gatsby"
+        },
+        "base_no_experience": {
+          "query": "Where does The Great Gatsby take place?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.501700401306152,
+          "top1_doc_id": "13589762",
+          "top1_title": "The Great Gatsby (2013 film)"
+        },
+        "base_text_experience": {
+          "query": "Great Gatsby takes place in which year?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.81719970703125,
+          "top1_doc_id": "17350586",
+          "top1_title": "The Great Gatsby"
+        },
+        "memgen_latent_experience": {
+          "query": "МИA",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 40,
+      "question": "when did the dallas cowboys win their last playoff game?",
+      "golden_answers": [
+        "2014",
+        "2016"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when did the dallas cowboys win their last playoff game?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.714500427246094,
+          "top1_doc_id": "4540487",
+          "top1_title": "2017 Dallas Cowboys season"
+        },
+        "base_no_experience": {
+          "query": "What is the date of the Dallas Cowboys' last playoff victory?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.472000122070312,
+          "top1_doc_id": "1594335",
+          "top1_title": "Dallas Cowboys"
+        },
+        "base_text_experience": {
+          "query": "What year did the Dallas Cowboys win their last playoff game?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 19.732099533081055,
+          "top1_doc_id": "573887",
+          "top1_title": "National Football League rivalries"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的地区",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 19.87179946899414,
+          "top1_doc_id": "12392467",
+          "top1_title": "Bloodstained Glory",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 41,
+      "question": "who may be affected by monetary penalties imposed by the irs?",
+      "golden_answers": [
+        "Taxpayers in the United States"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who may be affected by monetary penalties imposed by the irs?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 21.892499923706055,
+          "top1_doc_id": "14475017",
+          "top1_title": "IRS penalties"
+        },
+        "base_no_experience": {
+          "query": "What entities and relations should I include in my Wikipedia search query for \"who may be affected by monetary penalties imposed by the",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 18.839099884033203,
+          "top1_doc_id": "14475017",
+          "top1_title": "IRS penalties"
+        },
+        "base_text_experience": {
+          "query": "What are some potential consequences of increased taxes?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.475500106811523,
+          "top1_doc_id": "17895384",
+          "top1_title": "Criticism of Facebook"
+        },
+        "memgen_latent_experience": {
+          "query": "МИrland",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 42,
+      "question": "who turned out to be the mother on how i met your mother?",
+      "golden_answers": [
+        "Tracy McConnell"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who turned out to be the mother on how i met your mother?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 22.794300079345703,
+          "top1_doc_id": "8664739",
+          "top1_title": "False Positive (How I Met Your Mother)"
+        },
+        "base_no_experience": {
+          "query": "Who was the mother in How I Met Your Mother?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 20.99449920654297,
+          "top1_doc_id": "1571475",
+          "top1_title": "How I Met Your Mother (season 9)"
+        },
+        "base_text_experience": {
+          "query": "who turned out to be the mother on how i met your mother?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 22.794300079345703,
+          "top1_doc_id": "8664739",
+          "top1_title": "False Positive (How I Met Your Mother)"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 43,
+      "question": "what is the corporate tax rate in great britain?",
+      "golden_answers": [
+        "20%"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the corporate tax rate in great britain?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.041199684143066,
+          "top1_doc_id": "3400472",
+          "top1_title": "Louvre Accord"
+        },
+        "base_no_experience": {
+          "query": "What is the corporate tax rate in Great Britain?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.041199684143066,
+          "top1_doc_id": "3400472",
+          "top1_title": "Louvre Accord"
+        },
+        "base_text_experience": {
+          "query": "What is the corporate tax rate in Great Britain?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 14.041199684143066,
+          "top1_doc_id": "3400472",
+          "top1_title": "Louvre Accord"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlks to the Great Lakes",
+          "hit": true,
+          "rank": 4,
+          "top1_score": 7.0945000648498535,
+          "top1_doc_id": "8524542",
+          "top1_title": "Great Lakes",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 44,
+      "question": "what is the meaning of the name sinead?",
+      "golden_answers": [
+        "God forgave/God gratified"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the meaning of the name sinead?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 10.26099967956543,
+          "top1_doc_id": "11965189",
+          "top1_title": "Ruby Button"
+        },
+        "base_no_experience": {
+          "query": "What does the name \"Sinead\" mean in English?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.007699966430664,
+          "top1_doc_id": "18570666",
+          "top1_title": "Sinead O'Connor (Hollyoaks)"
+        },
+        "base_text_experience": {
+          "query": "What does the name \"Sinead\" mean?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 11.007699966430664,
+          "top1_doc_id": "18570666",
+          "top1_title": "Sinead O'Connor (Hollyoaks)"
+        },
+        "memgen_latent_experience": {
+          "query": "如皋an",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.653800010681152,
+          "top1_doc_id": "4633294",
+          "top1_title": "Battle of Rugao",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 45,
+      "question": "what network is showing the monday night football game?",
+      "golden_answers": [
+        "ESPN"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what network is showing the monday night football game?",
+          "hit": true,
+          "rank": 3,
+          "top1_score": 17.173799514770508,
+          "top1_doc_id": "4670518",
+          "top1_title": "History of the National Hockey League on United States television"
+        },
+        "base_no_experience": {
+          "query": "What network broadcasts the Monday Night Football game?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 19.391000747680664,
+          "top1_doc_id": "13087568",
+          "top1_title": "Monday Night Football"
+        },
+        "base_text_experience": {
+          "query": "What network is currently airing \"Monday Night Football\"?",
+          "hit": true,
+          "rank": 2,
+          "top1_score": 17.004499435424805,
+          "top1_doc_id": "13266255",
+          "top1_title": "WNYW"
+        },
+        "memgen_latent_experience": {
+          "query": "如标记的网站",
+          "hit": false,
+          "rank": null,
+          "top1_score": 18.66119956970215,
+          "top1_doc_id": "14783493",
+          "top1_title": "Hua Chenyu",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 46,
+      "question": "what is the form of mozart symphony no 40?",
+      "golden_answers": [
+        "G minor",
+        "minor key symphonies"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what is the form of mozart symphony no 40?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 15.263099670410156,
+          "top1_doc_id": "12257766",
+          "top1_title": "Symphony No. 40 (Mozart)"
+        },
+        "base_no_experience": {
+          "query": "What is the form of Mozart's Symphony No. 40?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 15.263099670410156,
+          "top1_doc_id": "12257766",
+          "top1_title": "Symphony No. 40 (Mozart)"
+        },
+        "base_text_experience": {
+          "query": "What is the form of Mozart's Symphony No. 40?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 15.263099670410156,
+          "top1_doc_id": "12257766",
+          "top1_title": "Symphony No. 40 (Mozart)"
+        },
+        "memgen_latent_experience": {
+          "query": "去处",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.684000015258789,
+          "top1_doc_id": "2107574",
+          "top1_title": "Hu Yepin",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 47,
+      "question": "what was the city of beijing previously known as?",
+      "golden_answers": [
+        "Peking"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "what was the city of beijing previously known as?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 9.47599983215332,
+          "top1_doc_id": "12428105",
+          "top1_title": "Xuanwu District, Beijing"
+        },
+        "base_no_experience": {
+          "query": "What was Beijing previously known as?",
+          "hit": true,
+          "rank": 1,
+          "top1_score": 8.974499702453613,
+          "top1_doc_id": "6942661",
+          "top1_title": "Beijing Huiwen Middle School"
+        },
+        "base_text_experience": {
+          "query": "What was the city of Beijing previously known as?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 9.47599983215332,
+          "top1_doc_id": "12428105",
+          "top1_title": "Xuanwu District, Beijing"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly,悻, the city of Beijing was formerly known as Beijing.",
+          "hit": false,
+          "rank": null,
+          "top1_score": 16.48699951171875,
+          "top1_doc_id": "11764675",
+          "top1_title": "Beijing Liao and Jin City Wall Museum",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 48,
+      "question": "when is the fourth movie of the divergent series coming out?",
+      "golden_answers": [
+        "never made"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "when is the fourth movie of the divergent series coming out?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.514100074768066,
+          "top1_doc_id": "6135344",
+          "top1_title": "The Divergent Series: Allegiant"
+        },
+        "base_no_experience": {
+          "query": "What is the release date of the fourth movie in the \"Divergent\" series?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.268899917602539,
+          "top1_doc_id": "17781448",
+          "top1_title": "Webbie"
+        },
+        "base_text_experience": {
+          "query": "What is the release date of the fourth movie in the \"Divergent\" series?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.268899917602539,
+          "top1_doc_id": "17781448",
+          "top1_title": "Webbie"
+        },
+        "memgen_latent_experience": {
+          "query": "如皋市，大都，大都，大都，大都，大都，大都，大都",
+          "hit": false,
+          "rank": null,
+          "top1_score": 96.94860076904297,
+          "top1_doc_id": "14631111",
+          "top1_title": "Sichuan University",
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 49,
+      "question": "who will take the throne after the queen dies?",
+      "golden_answers": [
+        "Charles, Prince of Wales"
+      ],
+      "results": {
+        "raw_question": {
+          "query": "who will take the throne after the queen dies?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.692000389099121,
+          "top1_doc_id": "9572365",
+          "top1_title": "Theresa of Portugal, Queen of León"
+        },
+        "base_no_experience": {
+          "query": "Who is likely to succeed the reigning monarch after their death?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 13.402999877929688,
+          "top1_doc_id": "7412970",
+          "top1_title": "Monarchy of Jamaica"
+        },
+        "base_text_experience": {
+          "query": "who will take the throne after the queen dies?",
+          "hit": false,
+          "rank": null,
+          "top1_score": 12.692000389099121,
+          "top1_doc_id": "9572365",
+          "top1_title": "Theresa of Portugal, Queen of León"
+        },
+        "memgen_latent_experience": {
+          "query": "МИlly",
+          "hit": false,
+          "rank": null,
+          "top1_score": null,
+          "top1_doc_id": null,
+          "top1_title": null,
+          "augmentation_mask": [
+            [
+              1,
+              -100,
+              -100,
+              -100,
+              1,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100,
+              -100
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "caveat": "MemGen is run without a released trained SFT/GRPO checkpoint; its projection layers and latent query parameters are randomly initialized."
+}
