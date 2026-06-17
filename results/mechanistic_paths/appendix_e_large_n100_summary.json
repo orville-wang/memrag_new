@@ -1,0 +1,572 @@
+{
+  "Qwen1.5B": {
+    "n": 100,
+    "arms": {
+      "memgen": {
+        "gold_answer_prob": {
+          "mean": 0.18995708376169204,
+          "sem": 0.014513612983599208,
+          "ci95_low": 0.16404834615206348,
+          "ci95_high": 0.2184832072057761
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 1.0529044950008393,
+          "sem": 0.1208133379313395,
+          "ci95_low": 0.8169415104985237,
+          "ci95_high": 1.2807234711647033
+        },
+        "next_token_entropy": {
+          "mean": 3.2156804508715866,
+          "sem": 0.1577067908590115,
+          "ci95_low": 2.898317522957921,
+          "ci95_high": 3.5054491792507467
+        }
+      },
+      "expel_trained": {
+        "gold_answer_prob": {
+          "mean": 0.215605063829571,
+          "sem": 0.016580261770525424,
+          "ci95_low": 0.18559619940910488,
+          "ci95_high": 0.24914869072055446
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 1.2654208385944365,
+          "sem": 0.12353002895837498,
+          "ci95_low": 1.0255104816257954,
+          "ci95_high": 1.4943368809521196
+        },
+        "next_token_entropy": {
+          "mean": 3.7301309064030646,
+          "sem": 0.1307858871103078,
+          "ci95_low": 3.4693245364129544,
+          "ci95_high": 3.9796564890071746
+        }
+      },
+      "expel_untrained": {
+        "gold_answer_prob": {
+          "mean": 0.178991650827229,
+          "sem": 0.014332724539839765,
+          "ci95_low": 0.15275990208843723,
+          "ci95_high": 0.20754417981440199
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 0.9537979364395142,
+          "sem": 0.11572937906130247,
+          "ci95_low": 0.7288647953569889,
+          "ci95_high": 1.1671790449917314
+        },
+        "next_token_entropy": {
+          "mean": 5.3891259258985516,
+          "sem": 0.1383604524519467,
+          "ci95_low": 5.113089576944709,
+          "ci95_high": 5.652399150237441
+        }
+      }
+    },
+    "paired": {
+      "expel_trained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.02564798006787896,
+          "sem": 0.007245844894695637,
+          "ci95_low": 0.011752855298109353,
+          "ci95_high": 0.04037109882477671,
+          "positive_rate": 0.58,
+          "negative_rate": 0.42,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.21251634359359742,
+          "sem": 0.05698313482045666,
+          "ci95_low": 0.10175505051016807,
+          "ci95_high": 0.329767346739769,
+          "positive_rate": 0.63,
+          "negative_rate": 0.37,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": 0.514450455531478,
+          "sem": 0.2168957302540123,
+          "ci95_low": 0.09657200093194843,
+          "ci95_high": 0.9361733777076005,
+          "positive_rate": 0.56,
+          "negative_rate": 0.44,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      },
+      "expel_trained_minus_expel_untrained": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.036613413002341985,
+          "sem": 0.008763751564839545,
+          "ci95_low": 0.019954225769732145,
+          "ci95_high": 0.05394846901763229,
+          "positive_rate": 0.65,
+          "negative_rate": 0.35,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.3116229021549225,
+          "sem": 0.06441311830223426,
+          "ci95_low": 0.19050757387280465,
+          "ci95_high": 0.4389592286944388,
+          "positive_rate": 0.71,
+          "negative_rate": 0.29,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "next_token_entropy",
+          "mean_delta": -1.6589950194954872,
+          "sem": 0.1764255810021072,
+          "ci95_low": -2.004097531206906,
+          "ci95_high": -1.3032147254347801,
+          "positive_rate": 0.16,
+          "negative_rate": 0.84,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      },
+      "expel_untrained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": -0.010965432934463025,
+          "sem": 0.008024628551174518,
+          "ci95_low": -0.026596624487079678,
+          "ci95_high": 0.004835609906818701,
+          "positive_rate": 0.45,
+          "negative_rate": 0.55,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": -0.09910655856132507,
+          "sem": 0.06910667588556627,
+          "ci95_low": -0.2337005409002304,
+          "ci95_high": 0.03499473360180851,
+          "positive_rate": 0.41,
+          "negative_rate": 0.59,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": 2.173445475026965,
+          "sem": 0.2166383348828505,
+          "ci95_low": 1.7626980159766972,
+          "ci95_high": 2.5966387202963226,
+          "positive_rate": 0.86,
+          "negative_rate": 0.14,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      }
+    }
+  },
+  "SmolLM3-3B": {
+    "n": 100,
+    "arms": {
+      "memgen": {
+        "gold_answer_prob": {
+          "mean": 0.10721250948670785,
+          "sem": 0.01085962090133612,
+          "ci95_low": 0.08705966970948793,
+          "ci95_high": 0.129474534883906
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 0.5846320557594299,
+          "sem": 0.17095010614444156,
+          "ci95_low": 0.25328535634279253,
+          "ci95_high": 0.909760484457016
+        },
+        "next_token_entropy": {
+          "mean": 5.9824110126495365,
+          "sem": 0.030895875617980535,
+          "ci95_low": 5.9190618288517,
+          "ci95_high": 6.039494743108749
+        }
+      },
+      "expel_trained": {
+        "gold_answer_prob": {
+          "mean": 0.14029022726550466,
+          "sem": 0.013845611656886626,
+          "ci95_low": 0.11424575570915477,
+          "ci95_high": 0.1687427197368597
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 0.8033421969413758,
+          "sem": 0.18461077052408278,
+          "ci95_low": 0.44430316573381423,
+          "ci95_high": 1.1592627148032189
+        },
+        "next_token_entropy": {
+          "mean": 4.378469278812409,
+          "sem": 0.10644462282539653,
+          "ci95_low": 4.1706161078214645,
+          "ci95_high": 4.573244063079357
+        }
+      },
+      "expel_untrained": {
+        "gold_answer_prob": {
+          "mean": 0.18251743187662214,
+          "sem": 0.013787522272757705,
+          "ci95_low": 0.15584816867555493,
+          "ci95_high": 0.20948226952960247
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 1.0051603174209596,
+          "sem": 0.15711713409746358,
+          "ci95_low": 0.6989148210287094,
+          "ci95_high": 1.3102690331339835
+        },
+        "next_token_entropy": {
+          "mean": 5.45780223608017,
+          "sem": 0.06783099899660153,
+          "ci95_low": 5.321701281905174,
+          "ci95_high": 5.5878426678180695
+        }
+      }
+    },
+    "paired": {
+      "expel_trained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.0330777177787968,
+          "sem": 0.006684826839881449,
+          "ci95_low": 0.020351307346732937,
+          "ci95_high": 0.04643524128355056,
+          "positive_rate": 0.7,
+          "negative_rate": 0.3,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.2187101411819458,
+          "sem": 0.059175170783842504,
+          "ci95_low": 0.09833751946687698,
+          "ci95_high": 0.33034141713380805,
+          "positive_rate": 0.64,
+          "negative_rate": 0.36,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": -1.6039417338371278,
+          "sem": 0.10571080272780801,
+          "ci95_low": -1.8150537998080254,
+          "ci95_high": -1.4038910812735559,
+          "positive_rate": 0.05,
+          "negative_rate": 0.95,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      },
+      "expel_trained_minus_expel_untrained": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_answer_prob",
+          "mean_delta": -0.04222720461111749,
+          "sem": 0.010112176317499616,
+          "ci95_low": -0.06215206016707088,
+          "ci95_high": -0.02276234638931783,
+          "positive_rate": 0.29,
+          "negative_rate": 0.71,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": -0.20181812047958375,
+          "sem": 0.11368890471854017,
+          "ci95_low": -0.4243020211458206,
+          "ci95_high": 0.018742487251758325,
+          "positive_rate": 0.43,
+          "negative_rate": 0.57,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "next_token_entropy",
+          "mean_delta": -1.0793329572677612,
+          "sem": 0.11774632977407877,
+          "ci95_low": -1.30735633289814,
+          "ci95_high": -0.8565967115163807,
+          "positive_rate": 0.2,
+          "negative_rate": 0.8,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      },
+      "expel_untrained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.07530492238991428,
+          "sem": 0.01043526155942642,
+          "ci95_low": 0.055045000299651294,
+          "ci95_high": 0.09665398202484356,
+          "positive_rate": 0.82,
+          "negative_rate": 0.18,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.42052826166152957,
+          "sem": 0.11026155055229467,
+          "ci95_low": 0.2069670222401619,
+          "ci95_high": 0.6355072671771048,
+          "positive_rate": 0.63,
+          "negative_rate": 0.37,
+          "zero_rate": 0.0,
+          "n": 100
+        },
+        "next_token_entropy": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": -0.5246087765693664,
+          "sem": 0.07607998257342188,
+          "ci95_low": -0.6770263289213181,
+          "ci95_high": -0.37640212744474427,
+          "positive_rate": 0.25,
+          "negative_rate": 0.75,
+          "zero_rate": 0.0,
+          "n": 100
+        }
+      }
+    }
+  },
+  "Pooled-200": {
+    "n": 200,
+    "arms": {
+      "memgen": {
+        "gold_answer_prob": {
+          "mean": 0.14858479662419996,
+          "sem": 0.009504348218575964,
+          "ci95_low": 0.13025363879023644,
+          "ci95_high": 0.16721484751164825
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 0.8187682753801346,
+          "sem": 0.10571365370321133,
+          "ci95_low": 0.6067160813361406,
+          "ci95_high": 1.0204017022550105
+        },
+        "next_token_entropy": {
+          "mean": 4.599045731760562,
+          "sem": 0.12665161842579759,
+          "ci95_low": 4.34595446728915,
+          "ci95_high": 4.844844411933795
+        }
+      },
+      "expel_trained": {
+        "gold_answer_prob": {
+          "mean": 0.17794764554753784,
+          "sem": 0.011099160241905772,
+          "ci95_low": 0.15604287220629703,
+          "ci95_high": 0.19984350730199366
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 1.034381517767906,
+          "sem": 0.1119886255405453,
+          "ci95_low": 0.812227724596858,
+          "ci95_high": 1.2488139943033456
+        },
+        "next_token_entropy": {
+          "mean": 4.054300092607736,
+          "sem": 0.08718484545341162,
+          "ci95_low": 3.8844789768569172,
+          "ci95_high": 4.218996434461325
+        }
+      },
+      "expel_untrained": {
+        "gold_answer_prob": {
+          "mean": 0.1807545413519256,
+          "sem": 0.009919648173991661,
+          "ci95_low": 0.1612031715742196,
+          "ci95_high": 0.20095854541912553
+        },
+        "gold_vs_distractor_margin": {
+          "mean": 0.9794791269302369,
+          "sem": 0.09734087988055774,
+          "ci95_low": 0.7864174871444702,
+          "ci95_high": 1.1658032377809286
+        },
+        "next_token_entropy": {
+          "mean": 5.423464080989361,
+          "sem": 0.07689122188728002,
+          "ci95_low": 5.266794278867543,
+          "ci95_high": 5.570190542206168
+        }
+      }
+    },
+    "paired": {
+      "expel_trained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.02936284892333788,
+          "sem": 0.004923875055776127,
+          "ci95_low": 0.01970818667386993,
+          "ci95_high": 0.03905968189093982,
+          "positive_rate": 0.64,
+          "negative_rate": 0.36,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.2156132423877716,
+          "sem": 0.04097272815864446,
+          "ci95_low": 0.1360072236508131,
+          "ci95_high": 0.2964266904890537,
+          "positive_rate": 0.635,
+          "negative_rate": 0.365,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": -0.5447456391528249,
+          "sem": 0.14184203971683715,
+          "ci95_low": -0.8313490769434719,
+          "ci95_high": -0.25153628455940635,
+          "positive_rate": 0.305,
+          "negative_rate": 0.695,
+          "zero_rate": 0.0,
+          "n": 200
+        }
+      },
+      "expel_trained_minus_expel_untrained": {
+        "gold_answer_prob": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_answer_prob",
+          "mean_delta": -0.00280689580438775,
+          "sem": 0.007235244415640067,
+          "ci95_low": -0.01689991547806494,
+          "ci95_high": 0.011445560908352491,
+          "positive_rate": 0.47,
+          "negative_rate": 0.53,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.054902390837669374,
+          "sem": 0.06766304172105791,
+          "ci95_low": -0.08626772703230381,
+          "ci95_high": 0.18862159577012055,
+          "positive_rate": 0.57,
+          "negative_rate": 0.43,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "next_token_entropy": {
+          "left": "expel_trained",
+          "right": "expel_untrained",
+          "metric": "next_token_entropy",
+          "mean_delta": -1.3691639883816242,
+          "sem": 0.1077643092913845,
+          "ci95_low": -1.5809570632837713,
+          "ci95_high": -1.1584471206218003,
+          "positive_rate": 0.18,
+          "negative_rate": 0.82,
+          "zero_rate": 0.0,
+          "n": 200
+        }
+      },
+      "expel_untrained_minus_memgen": {
+        "gold_answer_prob": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_answer_prob",
+          "mean_delta": 0.03216974472772563,
+          "sem": 0.007242555088661837,
+          "ci95_low": 0.0180089208854115,
+          "ci95_high": 0.04655775260840163,
+          "positive_rate": 0.635,
+          "negative_rate": 0.365,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "gold_vs_distractor_margin": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "gold_vs_distractor_margin",
+          "mean_delta": 0.16071085155010223,
+          "sem": 0.0674632051068086,
+          "ci95_low": 0.0261384090334177,
+          "ci95_high": 0.29434842672944045,
+          "positive_rate": 0.52,
+          "negative_rate": 0.48,
+          "zero_rate": 0.0,
+          "n": 200
+        },
+        "next_token_entropy": {
+          "left": "expel_untrained",
+          "right": "memgen",
+          "metric": "next_token_entropy",
+          "mean_delta": 0.8244183492287993,
+          "sem": 0.14919432902202265,
+          "ci95_low": 0.5340462354589254,
+          "ci95_high": 1.1191753492280838,
+          "positive_rate": 0.555,
+          "negative_rate": 0.445,
+          "zero_rate": 0.0,
+          "n": 200
+        }
+      }
+    }
+  }
+}
